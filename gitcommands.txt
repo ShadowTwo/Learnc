@@ -1,0 +1,16 @@
+Add a remote site to download code:
+git remote add origin https://github.com/ShadowTwo/Learnc.git
+
+Add inital files to the repo:
+git push -u origin --all
+
+Add a Commit about changes:
+git commit -m "You message"
+
+Pull changes to other computer:
+git pull origin master
+
+Push changes to repo
+git push origin master
+
+
