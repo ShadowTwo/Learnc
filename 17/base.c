@@ -19,7 +19,7 @@ struct DataBase
 	int MAX_DATA;
 	int MAX_ROW;
 	FILE *file;
-	struct Address *Rows[];
+	struct Address **Rows;
 };
 /*
 struct Connection {
@@ -94,6 +94,7 @@ int main(int argc, char *argv[])
 {
 	FILE *file;
 	//int *data;
+	int count = 0;
 	char *filename;
 	struct DataBase *db = malloc(sizeof(struct DataBase));
 
@@ -111,8 +112,11 @@ int main(int argc, char *argv[])
 			int Input_Data = atoi(argv[3]);
 			int Input_Row = atoi(argv[4]);
 
-			char **EmptyString = malloc(sizeof(char) * Input_Data);
-			EmptyString[Input_Data -1] = NULL;
+			char *EmptyString = malloc(sizeof(char) * Input_Data);
+			//EmptyString[0] = 'a';
+			//EmptyString[1] = 'b';
+			EmptyString[Input_Data -1] = '\0';
+			//printf("EmptyString '%s'\n", EmptyString);
 
 			//Write the max sizes to the file (did not check to make sure it was int)
 			check(fwrite(&Input_Data, sizeof(int), 1, file), "Error write 1");
@@ -120,9 +124,10 @@ int main(int argc, char *argv[])
 			
 			printf("Input_Data: %d\n", Input_Data);
 			printf("Input_Row: %d\n", Input_Row);
+			printf("Sizeof(EmptyString): %ld = %ld\n", sizeof(EmptyString), sizeof(char) * Input_Data);
 
 			//Write Blank Data base to file;
-			int count = 0;
+			
 			for (count = 0; count < Input_Row; count++)
 			{ 
 				printf("Count %d\n", count);
@@ -131,13 +136,14 @@ int main(int argc, char *argv[])
 				//Write Set Status
 				check(fwrite(&set, sizeof(int), 1, file), "Error write Set");
 				//Write Name
-				check(fwrite(EmptyString, sizeof(EmptyString), 1, file), "Error write name");
+				check(fwrite(EmptyString, sizeof(char) * Input_Data, 1, file), "Error write name");
 				//Write Email
-				check(fwrite(EmptyString, sizeof(EmptyString), 1, file), "Error write Email");
+				check(fwrite(EmptyString, sizeof(char) * Input_Data, 1, file), "Error write Email");
 			}
 
 			//Close the file;
 			fclose(file);
+			free(EmptyString);
 			break;
 		case 'r':
 			//struct DataBase *db = malloc(sizeof(struct DataBase));
@@ -145,28 +151,58 @@ int main(int argc, char *argv[])
 			filename = argv[2];
 			db->file = fopen(filename, "r");
 
-			check(fread(&(db->MAX_DATA), sizeof(int),1,file), "Failed read MAX_DATA");
-			check(fread(&(db->MAX_ROW), sizeof(int),1,file), "Failed read MAX_ROW");
+			check(fread(&(db->MAX_DATA), sizeof(int),1,db->file), "Failed read MAX_DATA");
+			check(fread(&(db->MAX_ROW), sizeof(int),1,db->file), "Failed read MAX_ROW");
 			
-			struct Address *things = malloc(sizeof(struct Address) * db->MAX_ROW);
-			db->Rows = things;
+			printf("Data: %d\nRow: %d\n", db->MAX_DATA, db->MAX_ROW);			
+
+			//struct Address **things 
+            db->Rows = (struct Address **) malloc(sizeof(struct Address) * db->MAX_ROW);
+
+			check(db->Rows, "Error creating Address Array.");
+			//db->Rows = things;
 
 			int sizeofstrings = sizeof(char) * db->MAX_DATA;
 			//char *data = malloc(sizeofstrings);
+
+			//Give Names and email points an location
+			//count = 0;
+		
+			printf("Start of Name/email:\n");
+			for(count = 0; count < db->MAX_ROW; count++)
+			{	
+				db->Rows[count] = malloc(sizeof(struct Address));
+				check(db->Rows[count], "Failed to Create Rows %d", count);
+				//printf("Name/Email %p\n", db->Rows[count]);
+				db->Rows[count]->Name = malloc(sizeofstrings);
+				check(db->Rows[count]->Name, "Failed to Create Name %d.", count);
+				db->Rows[count]->Email = malloc(sizeofstrings);
+				check(db->Rows[count]->Email, "Failed to Create Email %d.", count);
+			}			
 			
-			while(!feof(file) && count < db->MAX_ROW)
+						
+			printf("Start of Loop\n");
+			count = 0;
+			
+			while((!feof(db->file)) && (count < db->MAX_ROW))
 			{
-				check(fread(&(db->Rows[count]->ID), sizeof(int),1,file), "Failed read ID");
-				check(fread(&(db->Rows[count]->set), sizeof(int),1,file), "Failed read ID");
-				check(fread(&(db->Rows[count]->Name), sizeof(sizeofstrings),1,file), "Failed read name");
-				printf("Address->Name: %s\n", db->Rows[count]->Name);
+				//printf("Prefirst Read\n");
+				check(fread(&(db->Rows[count]->ID), sizeof(int),1,db->file), "Failed read ID");
+				printf("id: %d\n", db->Rows[count]->ID);
+				check(fread(&(db->Rows[count]->set), sizeof(int),1,db->file), "Failed read Set");
+				printf("Set: %d\n", db->Rows[count]->set);
+				check(fread(db->Rows[count]->Name, sizeofstrings,1,db->file), "Failed read name");
+				printf("Address->Name: '%s'\n", db->Rows[count]->Name);
 				//db->Rows[count]->Name = data;
-				check(fread(&(db->Rows[count]->Email), sizeof(sizeofstrings),1,file), "Failed read email");
-				printf("Address->Name: %s\n", db->Rows[count]->Email);
+				check(fread(db->Rows[count]->Email, sizeofstrings,1,db->file), "Failed read email");
+				printf("Address->Email: '%s'\n", db->Rows[count]->Email);
 				//db->Rows[count]->Email = data;
 				count++;
 			}
-			fclose(file);
+			printf("End of Loop\n");
+			fclose(db->file);
+
+			free(db->Rows);
 			break;
 		case 'a':
 			check(argc > 4, "Not Enough Args to Add.");
@@ -183,7 +219,9 @@ int main(int argc, char *argv[])
 	return 1;
 	error:
 	if (file) {fclose(file);}
-	printf("Base {c,r} {options}\n");
+	if (db->file) {fclose(file);}
+	if (db->Rows) {free(db->Rows);}
+	printf("Base {a,c,r} {options}\n");
 	printf("\t c {Path} {MAX_DATA} {MAX_ROW}\n");
 	printf("\t r {Path}\n");
 	printf("\t a {Path} {id} {Name} {Address}");
