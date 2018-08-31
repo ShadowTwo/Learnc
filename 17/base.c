@@ -153,6 +153,16 @@ int Database_Load(struct DataBase *db)
 	return 0;
 }
 
+void Database_PrintRecord(struct DataBase *db, int ID)
+{
+	check(db->Rows[ID], "Record does not exist.")
+	printf("id: %d\n", db->Rows[ID]->ID);
+	printf("Set: %d\n", db->Rows[ID]->set);
+	printf("Address->Name: '%s'\n", db->Rows[ID]->Name);
+	printf("Address->Email: '%s'\n", db->Rows[ID]->Email);
+	error:;
+}	
+
 void Database_Print(struct DataBase *db)
 {
 	int count = 0;
@@ -165,16 +175,6 @@ void Database_Print(struct DataBase *db)
 	}
 }	
 
-void Database_PrintRecord(struct DataBase *db, int ID)
-{
-	check(db->Row[ID], "Record does not exist.")
-	printf("id: %d\n", db->Rows[ID]->ID);
-	printf("Set: %d\n", db->Rows[ID]->set);
-	printf("Address->Name: '%s'\n", db->Rows[ID]->Name);
-	printf("Address->Email: '%s'\n", db->Rows[ID]->Email);
-	error:
-}	
-
 int Save_Database(struct DataBase *db)
 {
 	int count = 0;
@@ -185,7 +185,7 @@ int Save_Database(struct DataBase *db)
 
 	//Write Data base to file;
 	
-	for (count = 0; count < Input_Row; count++)
+	for (count = 0; count < db->MAX_ROW; count++)
 	{ 
 		//printf("Count %d\n", count);
 		//Write ID (count)
@@ -208,23 +208,23 @@ int Add_Record(struct DataBase *db, int ID, char *Name, char *Email)
 {
 	check(db->Rows[ID], "ID Does not Exist.");
 	
-	check(db->Rows[ID]->Set == 0, "ID is already set. Delete First.");
+	check(db->Rows[ID]->set == 0, "ID is already set. Delete First.");
 	
-	db->Rows[ID]->Set = 1;
+	db->Rows[ID]->set = 1;
 	
 	check(strncpy(db->Rows[ID]->Name, Name, db->MAX_DATA), "Failed to Copy Name.");
 	check(strncpy(db->Rows[ID]->Email, Email, db->MAX_DATA), "Failed to Copy Email.");
 	
 	return 1;
 	error:
-	Database_Destory(db);
+	DataBase_Destory(db);
 	return 0;
 }
 
 int Remove_Record(struct DataBase *db, int ID)
 {
 	check(db->Rows[ID], "Record not Found.");
-	db->Rows[ID]->Set = 0;
+	db->Rows[ID]->set = 0;
 	
 	return 1;
 	error:
@@ -269,11 +269,11 @@ int main(int argc, char *argv[])
 			check(Database_Load(db), "Failed to Load DB.");
 			
 			//Add_Record(struct DataBase *db, int ID, char *Name, char *Email)
-			check(Add_Record(db, atoi(argv[3]), argv[4], argv[5]), "Failed to Add Record: %d:) %s - %s", id, argv[4], argv[5]);
+			check(Add_Record(db, atoi(argv[3]), argv[4], argv[5]), "Failed to Add Record: %d:) %s - %s", atoi(argv[3]), argv[4], argv[5]);
 			
-			check(Database_Save(db), "Failed to Save DB.");
+			check(Save_Database(db), "Failed to Save DB.");
 			
-			DataBase_Destroy(DB);
+			DataBase_Destory(db);
 			break;
 		case 'd':
 			check(argc > 3, "Not enough Args.");
@@ -283,8 +283,8 @@ int main(int argc, char *argv[])
 			check(Database_Load(db), "Failed to Load DB.");
 			
 			//Remove_Record(struct DataBase *db, int ID)
-			Remove_Record(db, atoi(argv[3]); // why return a value if not going to check it?
-			DataBase_Destroy(DB);
+			Remove_Record(db, atoi(argv[3])); // why return a value if not going to check it?
+			DataBase_Destory(db);
 			
 			break;
 		default:
