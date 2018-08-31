@@ -159,17 +159,46 @@ void Database_Print(struct DataBase *db)
 			
 	while(count < db->MAX_ROW)
 	{
-		printf("id: %d\n", db->Rows[count]->ID);
-		printf("Set: %d\n", db->Rows[count]->set);
-		printf("Address->Name: '%s'\n", db->Rows[count]->Name);
-		printf("Address->Email: '%s'\n", db->Rows[count]->Email);
+		
+		Database_PrintRecord(db, count);
 		count++;
 	}
 }	
 
+void Database_PrintRecord(struct DataBase *db, int ID)
+{
+	check(db->Row[ID], "Record does not exist.")
+	printf("id: %d\n", db->Rows[ID]->ID);
+	printf("Set: %d\n", db->Rows[ID]->set);
+	printf("Address->Name: '%s'\n", db->Rows[ID]->Name);
+	printf("Address->Email: '%s'\n", db->Rows[ID]->Email);
+	error:
+}	
+
 int Save_Database(struct DataBase *db)
 {
-	check(1==1, "yup");
+	int count = 0;
+	
+	//Write the max sizes to the file (did not check to make sure it was int)
+	check(fwrite(&(db->MAX_DATA),  sizeof(int), 1, db->file), "Error write 1");
+	check(fwrite(&(db->MAX_ROW), sizeof(int), 1, db->file),"Error Write 2");
+
+	//Write Data base to file;
+	
+	for (count = 0; count < Input_Row; count++)
+	{ 
+		//printf("Count %d\n", count);
+		//Write ID (count)
+		check(fwrite(&(db->Rows[count]->ID), sizeof(int), 1, db->file), "Error write count");
+		//Write Set Status
+		check(fwrite(&(db->Rows[count]->set), sizeof(int), 1, db->file), "Error write Set");
+		//Write Name
+		check(fwrite(db->Rows[count]->Name, sizeof(char) * db->MAX_DATA, 1, db->file), "Error write name");
+		//Write Email
+		check(fwrite(db->Rows[count]->Email, sizeof(char) * db->MAX_DATA, 1, db->file), "Error write Email");
+	}
+
+	//Close the file;
 	return 1;
 	error:
 	return 0;
@@ -177,17 +206,34 @@ int Save_Database(struct DataBase *db)
 
 int Add_Record(struct DataBase *db, int ID, char *Name, char *Email)
 {
-	check(1==1, "yup")
+	check(db->Rows[ID], "ID Does not Exist.");
+	
+	check(db->Rows[ID]->Set == 0, "ID is already set. Delete First.");
+	
+	db->Rows[ID]->Set = 1;
+	
+	check(strncpy(db->Rows[ID]->Name, Name, db->MAX_DATA), "Failed to Copy Name.");
+	check(strncpy(db->Rows[ID]->Email, Email, db->MAX_DATA), "Failed to Copy Email.");
+	
+	return 1;
+	error:
+	Database_Destory(db);
+	return 0;
+}
+
+int Remove_Record(struct DataBase *db, int ID)
+{
+	check(db->Rows[ID], "Record not Found.");
+	db->Rows[ID]->Set = 0;
+	
 	return 1;
 	error:
 	return 0;
-
 }
 
 int main(int argc, char *argv[])
 {
 	struct DataBase *db;
-	//struct DataBase *db = malloc(sizeof(struct DataBase));
 
 	check (argc > 1, "Not Enough Args!");
 
@@ -222,12 +268,24 @@ int main(int argc, char *argv[])
 			check(db, "Failed to Create DB.");		
 			check(Database_Load(db), "Failed to Load DB.");
 			
+			//Add_Record(struct DataBase *db, int ID, char *Name, char *Email)
+			check(Add_Record(db, atoi(argv[3]), argv[4], argv[5]), "Failed to Add Record: %d:) %s - %s", id, argv[4], argv[5]);
 			
-			//int id = atoi(argv[3]);
-			//check(Add_Record(argv[1], id, argv[4], argv[5]), "Failed to Add Record: %d:) %s - %s", id, argv[4], argv[5]);
+			check(Database_Save(db), "Failed to Save DB.");
 			
+			DataBase_Destroy(DB);
 			break;
 		case 'd':
+			check(argc > 3, "Not enough Args.");
+			
+			db = Database_Init(argv[2]);
+			check(db, "Failed to Create DB.");		
+			check(Database_Load(db), "Failed to Load DB.");
+			
+			//Remove_Record(struct DataBase *db, int ID)
+			Remove_Record(db, atoi(argv[3]); // why return a value if not going to check it?
+			DataBase_Destroy(DB);
+			
 			break;
 		default:
 			printf("Options is not setup or misformated");
@@ -235,9 +293,10 @@ int main(int argc, char *argv[])
 	return 1;
 	error:
 	if (db) {DataBase_Destory(db);}
-	printf("Base {a,c,l} {options}\n");
+	printf("Base {a,c,d,l} {options}\n");
 	printf("\t c {Path} {MAX_DATA} {MAX_ROW}\n");
 	printf("\t l {Path}\n");
-	printf("\t a {Path} {id} {Name} {Address}\n");
+	printf("\t a {Path} {id} {Name} {Email}\n");
+	printf("\t d {Path} {id}\n");
 	return 0;
 }
