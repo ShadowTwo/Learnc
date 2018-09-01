@@ -92,15 +92,17 @@ int DataBase_Destory(struct DataBase *db)
 
 struct DataBase *Database_Init(char *filename)
 {
+	debug("Top of Init");
 	struct DataBase *db = malloc(sizeof(struct DataBase));
-	db->file = fopen(filename, "r");
-
+	check(db, "Failed top create a db");
+	db->file = fopen(filename, "r+");
+	check(db->file, "Failed to open File.");
+	debug("Reading Maxes");
 	check(fread(&(db->MAX_DATA), sizeof(int),1,db->file), "Failed read MAX_DATA");
 	check(fread(&(db->MAX_ROW), sizeof(int),1,db->file), "Failed read MAX_ROW");		
 
 	//struct Address **things 
-    db->Rows = (struct Address **) malloc(sizeof(struct Address) * db->MAX_ROW);
-
+    db->Rows = (struct Address **) malloc(sizeof(struct Address *) * db->MAX_ROW);
 	check(db->Rows, "Error creating Address Array.");
 
 	int sizeofstrings = sizeof(char) * db->MAX_DATA;
@@ -108,7 +110,7 @@ struct DataBase *Database_Init(char *filename)
 
 	//Give Names and email points an location
 	int count = 0;
-
+	debug("Start init loop:");
 	for(count = 0; count < db->MAX_ROW; count++)
 	{	
 		//Do I need this line if i crated the large array above?
@@ -119,6 +121,7 @@ struct DataBase *Database_Init(char *filename)
 		db->Rows[count]->Email = malloc(sizeofstrings);
 		check(db->Rows[count]->Email, "Failed to Create Email %d.", count);
 	}
+	debug("End of init loop");
 
 	return db;
 	error:
@@ -135,15 +138,14 @@ int Database_Load(struct DataBase *db)
 	{
 		//printf("Prefirst Read\n");
 		check(fread(&(db->Rows[count]->ID), sizeof(int),1,db->file), "Failed read ID");
-		printf("id: %d\n", db->Rows[count]->ID);
+		//debug("id: %d\n", db->Rows[count]->ID);
 		check(fread(&(db->Rows[count]->set), sizeof(int),1,db->file), "Failed read Set");
-		printf("Set: %d\n", db->Rows[count]->set);
+		//debug("Set: %d\n", db->Rows[count]->set);
 		check(fread(db->Rows[count]->Name, sizeofstrings,1,db->file), "Failed read name");
-		printf("Address->Name: '%s'\n", db->Rows[count]->Name);
-		//db->Rows[count]->Name = data;
+		//debug("Address->Name: '%s'\n", db->Rows[count]->Name);
 		check(fread(db->Rows[count]->Email, sizeofstrings,1,db->file), "Failed read email");
-		printf("Address->Email: '%s'\n", db->Rows[count]->Email);
-		//db->Rows[count]->Email = data;
+		//debug("Address->Email: '%s'\n", db->Rows[count]->Email);
+
 		count++;
 	}
 	
@@ -193,7 +195,10 @@ int Save_Database(struct DataBase *db)
 		//Write Set Status
 		check(fwrite(&(db->Rows[count]->set), sizeof(int), 1, db->file), "Error write Set");
 		//Write Name
-		check(fwrite(db->Rows[count]->Name, sizeof(char) * db->MAX_DATA, 1, db->file), "Error write name");
+		//check(fwrite(db->Rows[count]->Name, sizeof(char) * db->MAX_DATA, 1, db->file), "Error write name");
+		int mycheck = fwrite(&(db->Rows[count]->Name), sizeof(char) * db->MAX_DATA, 1, db->file);
+		debug("Saved Name: %s", db->Rows[count]->Name);
+		debug("Sizeof(Name): %ld\n Sizeof(Data): %ld\nData Writen: %d", sizeof(db->Rows[count]->Name), sizeof(char) * db->MAX_DATA, mycheck);
 		//Write Email
 		check(fwrite(db->Rows[count]->Email, sizeof(char) * db->MAX_DATA, 1, db->file), "Error write Email");
 	}
@@ -206,6 +211,7 @@ int Save_Database(struct DataBase *db)
 
 int Add_Record(struct DataBase *db, int ID, char *Name, char *Email)
 {
+	debug("Top of Add Record.");
 	check(db->Rows[ID], "ID Does not Exist.");
 	
 	check(db->Rows[ID]->set == 0, "ID is already set. Delete First.");
@@ -214,6 +220,8 @@ int Add_Record(struct DataBase *db, int ID, char *Name, char *Email)
 	
 	check(strncpy(db->Rows[ID]->Name, Name, db->MAX_DATA), "Failed to Copy Name.");
 	check(strncpy(db->Rows[ID]->Email, Email, db->MAX_DATA), "Failed to Copy Email.");
+	
+	debug("Name: %s - CPName: %s", Name, db->Rows[ID]->Name);
 	
 	return 1;
 	error:
@@ -264,15 +272,18 @@ int main(int argc, char *argv[])
 		case 'a':
 			check(argc > 4, "Not Enough Args to Add.");
 
+			debug("Creating DB.");
 			db = Database_Init(argv[2]);
-			check(db, "Failed to Create DB.");		
+			check(db, "Failed to Create DB.");
+			debug("Loading DB");		
 			check(Database_Load(db), "Failed to Load DB.");
 			
 			//Add_Record(struct DataBase *db, int ID, char *Name, char *Email)
 			check(Add_Record(db, atoi(argv[3]), argv[4], argv[5]), "Failed to Add Record: %d:) %s - %s", atoi(argv[3]), argv[4], argv[5]);
-			
+			debug("Added Record. Saving DB.");
 			check(Save_Database(db), "Failed to Save DB.");
 			
+			debug("Destorying DB");
 			DataBase_Destory(db);
 			break;
 		case 'd':
@@ -286,6 +297,18 @@ int main(int argc, char *argv[])
 			Remove_Record(db, atoi(argv[3])); // why return a value if not going to check it?
 			DataBase_Destory(db);
 			
+			break;
+		case 'g':
+			check(argc > 3, "Not Enough Args.");
+			
+			db = Database_Init(argv[2]);
+			check(db, "Failed to Create DB.");		
+			check(Database_Load(db), "Failed to Load DB.");
+			
+			debug("Getting Record %d...", atoi(argv[3]));
+			Database_PrintRecord(db, atoi(argv[3]));
+			debug("Record Should be Printed");
+			DataBase_Destory(db);	
 			break;
 		default:
 			printf("Options is not setup or misformated");
