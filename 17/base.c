@@ -85,7 +85,11 @@ int DataBase_Destory(struct DataBase *db)
 			free(db->Rows);
 		}
 		free(db);
-		if (db->file) {free(db->file);}
+		if (db->file) 
+		{
+			fclose(db->file); 
+			free(db->file);
+		}
 	}
 	return 1;
 }
@@ -179,6 +183,10 @@ void Database_Print(struct DataBase *db)
 
 int Save_Database(struct DataBase *db)
 {
+	//check(db->file, "File is not set.");
+	//debug("End of File Status before rewind: %d.", feof(db->file));
+	rewind(db->file);
+	//debug("End of File Status After Rewind: %d.", feof(db->file));
 	int count = 0;
 	
 	//Write the max sizes to the file (did not check to make sure it was int)
@@ -186,7 +194,7 @@ int Save_Database(struct DataBase *db)
 	check(fwrite(&(db->MAX_ROW), sizeof(int), 1, db->file),"Error Write 2");
 
 	//Write Data base to file;
-	
+	check(feof(db->file), "EOF File.");
 	for (count = 0; count < db->MAX_ROW; count++)
 	{ 
 		//printf("Count %d\n", count);
@@ -196,7 +204,7 @@ int Save_Database(struct DataBase *db)
 		check(fwrite(&(db->Rows[count]->set), sizeof(int), 1, db->file), "Error write Set");
 		//Write Name
 		//check(fwrite(db->Rows[count]->Name, sizeof(char) * db->MAX_DATA, 1, db->file), "Error write name");
-		int mycheck = fwrite(&(db->Rows[count]->Name), sizeof(char) * db->MAX_DATA, 1, db->file);
+		int mycheck = fwrite(db->Rows[count]->Name, sizeof(char) * db->MAX_DATA, 1, db->file);
 		debug("Saved Name: %s", db->Rows[count]->Name);
 		debug("Sizeof(Name): %ld\n Sizeof(Data): %ld\nData Writen: %d", sizeof(db->Rows[count]->Name), sizeof(char) * db->MAX_DATA, mycheck);
 		//Write Email
