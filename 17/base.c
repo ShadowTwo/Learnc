@@ -194,7 +194,7 @@ int Save_Database(struct DataBase *db)
 	check(fwrite(&(db->MAX_ROW), sizeof(int), 1, db->file),"Error Write 2");
 
 	//Write Data base to file;
-	check(feof(db->file), "EOF File.");
+	check(!feof(db->file), "EOF File.");
 	for (count = 0; count < db->MAX_ROW; count++)
 	{ 
 		//printf("Count %d\n", count);
@@ -210,7 +210,8 @@ int Save_Database(struct DataBase *db)
 		//Write Email
 		check(fwrite(db->Rows[count]->Email, sizeof(char) * db->MAX_DATA, 1, db->file), "Error write Email");
 	}
-
+	
+	fflush(db->file);
 	//Close the file;
 	return 1;
 	error:
@@ -219,7 +220,7 @@ int Save_Database(struct DataBase *db)
 
 int Add_Record(struct DataBase *db, int ID, char *Name, char *Email)
 {
-	debug("Top of Add Record.");
+	//debug("Top of Add Record.");
 	check(db->Rows[ID], "ID Does not Exist.");
 	
 	check(db->Rows[ID]->set == 0, "ID is already set. Delete First.");
@@ -229,7 +230,7 @@ int Add_Record(struct DataBase *db, int ID, char *Name, char *Email)
 	check(strncpy(db->Rows[ID]->Name, Name, db->MAX_DATA), "Failed to Copy Name.");
 	check(strncpy(db->Rows[ID]->Email, Email, db->MAX_DATA), "Failed to Copy Email.");
 	
-	debug("Name: %s - CPName: %s", Name, db->Rows[ID]->Name);
+	//debug("Name: %s - CPName: %s", Name, db->Rows[ID]->Name);
 	
 	return 1;
 	error:
