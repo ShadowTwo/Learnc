@@ -2,6 +2,7 @@
 #include <assert.h>
 #include <stdlib.h>
 #include <errno.h>
+#include <string.h>
 #include "dbg.h"
 
 
@@ -96,12 +97,12 @@ int DataBase_Destory(struct DataBase *db)
 
 struct DataBase *Database_Init(char *filename)
 {
-	debug("Top of Init");
+	//debug("Top of Init");
 	struct DataBase *db = malloc(sizeof(struct DataBase));
 	check(db, "Failed top create a db");
 	db->file = fopen(filename, "r+");
 	check(db->file, "Failed to open File.");
-	debug("Reading Maxes");
+	//debug("Reading Maxes");
 	check(fread(&(db->MAX_DATA), sizeof(int),1,db->file), "Failed read MAX_DATA");
 	check(fread(&(db->MAX_ROW), sizeof(int),1,db->file), "Failed read MAX_ROW");		
 
@@ -114,7 +115,7 @@ struct DataBase *Database_Init(char *filename)
 
 	//Give Names and email points an location
 	int count = 0;
-	debug("Start init loop:");
+	//debug("Start init loop:");
 	for(count = 0; count < db->MAX_ROW; count++)
 	{	
 		//Do I need this line if i crated the large array above?
@@ -125,7 +126,7 @@ struct DataBase *Database_Init(char *filename)
 		db->Rows[count]->Email = malloc(sizeofstrings);
 		check(db->Rows[count]->Email, "Failed to Create Email %d.", count);
 	}
-	debug("End of init loop");
+	//debug("End of init loop");
 
 	return db;
 	error:
@@ -208,7 +209,7 @@ int Save_Database(struct DataBase *db)
 		debug("Saved Name: %s", db->Rows[count]->Name);
 		debug("Sizeof(Name): %ld\n Sizeof(Data): %ld\nData Writen: %d", sizeof(db->Rows[count]->Name), sizeof(char) * db->MAX_DATA, mycheck);
 		//Write Email
-		check(fwrite(db->Rows[count]->Email, sizeof(char) * db->MAX_DATA, 1, db->file), "Error write Email");
+		check(fwrite(db->Rows[count]->Email, sizeof(char) * db->MAX_DATA, 1, db->file), "Error Writing Email");
 	}
 	
 	fflush(db->file);
@@ -248,6 +249,51 @@ int Remove_Record(struct DataBase *db, int ID)
 	return 0;
 }
 
+typedef char *(*GetValue)(struct Address *add);
+
+char *GetAddressName(struct Address *add)
+{
+	return add->Name;
+}
+
+char *GetAddressEmail(struct Address *add)
+{
+	return add->Email;
+}
+
+int DataBase_Search(struct DataBase *db, char *dbfield, char *Searchstr)
+{
+	GetValue GetValue_cb;
+	
+	if(strcasecmp("Name", Searchstr)) {GetValue_cb = GetAddressName;}
+	else if(strcasecmp("Email", Searchstr)) {GetValue_cb = GetAddressEmail;}
+	else {check(0, "Field does not exists.");}
+	
+	int count = 0;
+	int x = 0;
+	for(x = 0; x < db->MAX_ROW; x++)
+	{
+		if (db->Rows[x]->set)
+		{
+			if(strcasecmp(GetValue_cb(db->Rows[x]), Searchstr))
+			{
+				Database_PrintRecord(db, x);
+				count++;
+			}
+		} // end of Row set Check
+	} //End of For Loop 
+
+	if (count)
+	{
+		printf("%d Records Found!\n", count);
+		return 1;
+	}
+	
+	printf("No Records Found!");
+	error:
+	return 0;
+} //end of DataBase_Search
+
 int main(int argc, char *argv[])
 {
 	struct DataBase *db;
@@ -276,7 +322,9 @@ int main(int argc, char *argv[])
 			check(db, "Failed to Create DB.");		
 			check(Database_Load(db), "Failed to Load DB.");
 			
-			DataBase_Destory(db);		
+			Database_Print(db);
+			
+			//DataBase_Destory(db);		
 			break;
 		case 'a':
 			check(argc > 4, "Not Enough Args to Add.");
@@ -293,7 +341,7 @@ int main(int argc, char *argv[])
 			check(Save_Database(db), "Failed to Save DB.");
 			
 			debug("Destorying DB");
-			DataBase_Destory(db);
+			//DataBase_Destory(db);
 			break;
 		case 'd':
 			check(argc > 3, "Not enough Args.");
@@ -304,7 +352,7 @@ int main(int argc, char *argv[])
 			
 			//Remove_Record(struct DataBase *db, int ID)
 			Remove_Record(db, atoi(argv[3])); // why return a value if not going to check it?
-			DataBase_Destory(db);
+			//DataBase_Destory(db);
 			
 			break;
 		case 'g':
@@ -314,21 +362,37 @@ int main(int argc, char *argv[])
 			check(db, "Failed to Create DB.");		
 			check(Database_Load(db), "Failed to Load DB.");
 			
-			debug("Getting Record %d...", atoi(argv[3]));
+			//debug("Getting Record %d...", atoi(argv[3]));
 			Database_PrintRecord(db, atoi(argv[3]));
-			debug("Record Should be Printed");
-			DataBase_Destory(db);	
+			//debug("Record Should be Printed");
+			//DataBase_Destory(db);	
+			break;
+		case 'f':
+			check(argc > 4, "Not Enough Args.");
+			
+			db = Database_Init(argv[2]);
+			check(db, "Failed to Create DB.");		
+			check(Database_Load(db), "Failed to Load DB.");
+			
+			debug("Lets seach %s for %s!", argv[3], argv[4]);
+			DataBase_Search(db, argv[3], argv[4]);
+			
+			//DataBase_Destory(db);	
 			break;
 		default:
 			printf("Options is not setup or misformated");
 	}
+	
+	DataBase_Destory(db);
 	return 1;
 	error:
 	if (db) {DataBase_Destory(db);}
 	printf("Base {a,c,d,l} {options}\n");
-	printf("\t c {Path} {MAX_DATA} {MAX_ROW}\n");
-	printf("\t l {Path}\n");
 	printf("\t a {Path} {id} {Name} {Email}\n");
+	printf("\t c {Path} {MAX_DATA} {MAX_ROW}\n");
 	printf("\t d {Path} {id}\n");
+	printf("\t f {Path} {Field} {Matching String} -- Search for record\n");
+	printf("\t g {Path} {id} -- Get Record\n");
+	printf("\t l {Path}\n");
 	return 0;
 }
