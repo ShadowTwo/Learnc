@@ -265,8 +265,9 @@ int DataBase_Search(struct DataBase *db, char *dbfield, char *Searchstr)
 {
 	GetValue GetValue_cb;
 	
-	if(strcasecmp("Name", Searchstr)) {GetValue_cb = GetAddressName;}
-	else if(strcasecmp("Email", Searchstr)) {GetValue_cb = GetAddressEmail;}
+	//debug("dbfield: %s -- SearchStr: %s! The cmp is %d.", dbfield, Searchstr, strcasecmp("Name", dbfield));
+	if(strcasecmp("Name", dbfield) == 0) {GetValue_cb = GetAddressName;}
+	else if(strcasecmp("Email", dbfield) == 0) {GetValue_cb = GetAddressEmail;}
 	else {check(0, "Field does not exists.");}
 	
 	int count = 0;
@@ -275,7 +276,7 @@ int DataBase_Search(struct DataBase *db, char *dbfield, char *Searchstr)
 	{
 		if (db->Rows[x]->set)
 		{
-			if(strcasecmp(GetValue_cb(db->Rows[x]), Searchstr))
+			if(strcasecmp(GetValue_cb(db->Rows[x]), Searchstr) == 0)
 			{
 				Database_PrintRecord(db, x);
 				count++;
@@ -289,7 +290,7 @@ int DataBase_Search(struct DataBase *db, char *dbfield, char *Searchstr)
 		return 1;
 	}
 	
-	printf("No Records Found!");
+	printf("No Records Found!\n");
 	error:
 	return 0;
 } //end of DataBase_Search
@@ -380,7 +381,7 @@ int main(int argc, char *argv[])
 			//DataBase_Destory(db);	
 			break;
 		default:
-			printf("Options is not setup or misformated");
+			printf("Options is not setup or misformated\n"); //why is this not warning mico?
 	}
 	
 	DataBase_Destory(db);
