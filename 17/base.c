@@ -3,25 +3,10 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <string.h>
+#include "datastructs.h"
 #include "dbg.h"
+#include "interactive.h"
 
-
-
-struct Address 
-{
-	int ID;
-	int set;
-	char *Name;
-	char *Email;
-};
-
-struct DataBase
-{
-	int MAX_DATA;
-	int MAX_ROW;
-	FILE *file;
-	struct Address **Rows;
-};
 
 
 int Database_create(char *Path, int Input_Data, int Input_Row)
@@ -297,7 +282,7 @@ int DataBase_Search(struct DataBase *db, char *dbfield, char *Searchstr)
 
 int main(int argc, char *argv[])
 {
-	struct DataBase *db;
+	struct DataBase *db = NULL;
 
 	check (argc > 1, "Not Enough Args!");
 
@@ -380,8 +365,21 @@ int main(int argc, char *argv[])
 			
 			//DataBase_Destory(db);	
 			break;
+		case 'i':
+			check (argc > 1, "This test is a waste of time");
+			
+			if (argc > 2) 
+			{
+				db = Database_Init(argv[2]);
+				check(db, "Failed to Create DB.");		
+				check(Database_Load(db), "Failed to Load DB.");
+			}
+			
+			check(InteractiveLoop(db), "Failed InteractiveLoop");
+			
+			break;
 		default:
-			printf("Options is not setup or misformated\n"); //why is this not warning mico?
+			printf("Options is not setup or misformated\n"); //why is this not the warning mico?
 	}
 	
 	DataBase_Destory(db);
@@ -394,6 +392,7 @@ int main(int argc, char *argv[])
 	printf("\t d {Path} {id}\n");
 	printf("\t f {Path} {Field} {Matching String} -- Search for record\n");
 	printf("\t g {Path} {id} -- Get Record\n");
+	printf("\t i [Path] -- Start Interactive Mode\n");
 	printf("\t l {Path}\n");
 	return 0;
 }
