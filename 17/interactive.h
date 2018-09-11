@@ -37,6 +37,7 @@ int InteractiveLoop(struct DataBase *db)
 	int running = 1;
 	int UserInput = 0;
 	int rc = 0;
+	char *rs;
 	
 	printf("Welcome to Interactive Mode. Please entera selection:\n");
 	
@@ -71,11 +72,30 @@ int InteractiveLoop(struct DataBase *db)
 		{
 			switch(UserInput)
 			{
-				case 1:
+				case 1: //Create
+					//Get Max Data
+					printf("\nMax Length of text Fields>> ");
+					int Max_Data;
+					//printf("\nMax Length of text Fields>> ");
+					rc = fscanf(stdin, "%d", &Max_Data);
+					check(rc, "Invaild Entry. Please enter the number for your selection.\n");
+					//Get Max Row
+					int Max_Row;
+					printf("\nMax Number of Rows>> ");
+					rc = fscanf(stdin, "%d", &Max_Row);
+					check(rc, "Invaild Entry. Please enter the number for your selection.\n");
+					//Get File Name
+					printf("\nEnter File name of Database>> ");
+					char *Path = malloc(Max_Data * sizeof(char));
+					rs = fgets(Path, Max_Data -1, stdin);
+					check(rs != NULL, "Failed to Read Path.");
+					// create Empty DB
+					check(Database_create(Path, Max_Data, Max_Row), "Error Creating DataBase file");		
+					// Load DB
 					break;
-				case 2:
+				case 2: //Select
 					break;
-				case 3:
+				case 3: //Quit
 					running = 0;
 					break;
 				default:
