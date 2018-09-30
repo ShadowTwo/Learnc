@@ -1,4 +1,6 @@
 Add a remote site to download code:
+Go into the root folder
+git init
 git remote add origin https://github.com/ShadowTwo/Learnc.git
 
 Add inital files to the repo:
