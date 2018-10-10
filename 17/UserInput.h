@@ -9,15 +9,24 @@
 int Read_Int(int *Number)
 {
 	//Reaqd the user input
-	char *UserInput = fgets(Number, strLengofInt, stdin);
+	char *UserInput = malloc(sizeof(char) * str_LengthofInt);
+	
+	char *rc;
+	
+	rc = fgets(UserInput, str_LengthofInt, stdin);
 
 	//Check that each input is a number
 	
 
 	//Convert String to Integer
-	Number = atoi(UserInput);
+	if (rc) 
+	{
+		*Number = atoi(UserInput);	
+		return 1;
+	}
 	
-	return 1
+	//Failed to Read
+	return 0;
 }
 
 #endif

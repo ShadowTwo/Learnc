@@ -2,6 +2,22 @@
 #include <string.h>
 #include "dbg.h"
 #include "datastructs.h"
+#include "UserInput.h"
+
+int Remove_NewLine(char* theString, int MaxLength, int StartingPlace)
+{
+	int x = StartingPlace;
+	if (x < 0) {x=0;}
+	for(; x < MaxLength; x++)
+	{
+		if (theString[x] == '\n') 
+		{
+			theString[x] = 0;
+			return x; //Index of Newline that was removed lets hope it was not at 0....
+		}
+	}
+	return 0; //no newline Found or the new line was at index 0.... 
+}
 
 
 void Print_Menu(struct DataBase *db)
@@ -44,14 +60,14 @@ int InteractiveLoop(struct DataBase *db)
 	while(running)
 	{
 		Print_Menu(db);
-		rc = fscanf(stdin, "%d", &UserInput);
+		rc = Read_Int(&UserInput);
 		check(rc, "Invaild Entry. Please enter the number for your selection.\n");
 		
 		if(db)
 		{
 			switch(UserInput)
 			{
-				case 1:
+				case 1:  //Add Record
 					break;
 				case 2:
 					break;
@@ -76,13 +92,13 @@ int InteractiveLoop(struct DataBase *db)
 					//Get Max Data
 					printf("\nMax Length of text Fields>> ");
 					int Max_Data;
-					rc = fscanf(stdin, "%d", &Max_Data);
+					rc = Read_Int(&Max_Data);
 					check(rc, "Invaild Entry. Please enter the number for your selection.\n");
 
 					//Get Max Row
 					int Max_Row;
 					printf("\nMax Number of Rows>> ");
-					rc = fscanf(stdin, "%d", &Max_Row);
+					rc = Read_Int(&Max_Row);
 					check(rc, "Invaild Entry. Please enter the number for your selection.\n");
 
 					//Get File Name
@@ -90,15 +106,20 @@ int InteractiveLoop(struct DataBase *db)
 					fflush(stdin);
 
 					printf("Enter File name of Database>> ");
-					char *Path = malloc(Max_Data * sizeof(char));
-					rs = fgets(Path, Max_Data -1, stdin);
+					char *Path = malloc(255 * sizeof(char));
+					rs = fgets(Path, 255, stdin);
 					check(rs != NULL, "Failed to Read Path.");
-
+					
+					//remove New Line;
+					Remove_NewLine(*Path, 255, 0);
+					
 					debug("Lets make a DB at %s! With %d Rows that are %d wide...", Path, Max_Row, Max_Data);
-
+					
 					// create Empty DB
-					//check(Database_create(Path, Max_Data, Max_Row), "Error Creating DataBase file");		
+					check(Database_create(Path, Max_Data, Max_Row), "Error Creating DataBase file");		
 					// Load DB
+					check(Database_Load(db), "Error Loading DB!");
+					free(Path);
 					break;
 				case 2: //Select
 					break;
@@ -111,7 +132,8 @@ int InteractiveLoop(struct DataBase *db)
 		}
 		
 		
-		error:;
+		error:
+		if(Path) {free(Path);}
 		
 	} //end of while running loop
 	
