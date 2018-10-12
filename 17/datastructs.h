@@ -1,6 +1,8 @@
 #ifndef __interactive_h__
 #define __interactive_h__
 #include "dbg.h"
+#include <stdlib.h>
+
 struct Address 
 {
 	int ID;

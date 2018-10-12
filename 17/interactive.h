@@ -4,7 +4,7 @@
 #include "datastructs.h"
 #include "UserInput.h"
 
-int Remove_NewLine(char* theString, int MaxLength, int StartingPlace)
+int Remove_NewLine(char *theString, int MaxLength, int StartingPlace)
 {
 	int x = StartingPlace;
 	if (x < 0) {x=0;}
@@ -54,6 +54,7 @@ int InteractiveLoop(struct DataBase *db)
 	int UserInput = 0;
 	int rc = 0;
 	char *rs = NULL;
+	char *Path;
 	
 	printf("Welcome to Interactive Mode. Please entera selection:\n");
 	
@@ -106,12 +107,12 @@ int InteractiveLoop(struct DataBase *db)
 					fflush(stdin);
 
 					printf("Enter File name of Database>> ");
-					char *Path = malloc(255 * sizeof(char));
+					Path = malloc(255 * sizeof(char));
 					rs = fgets(Path, 255, stdin);
 					check(rs != NULL, "Failed to Read Path.");
 					
 					//remove New Line;
-					Remove_NewLine(*Path, 255, 0);
+					Remove_NewLine(Path, 255, 0);
 					
 					debug("Lets make a DB at %s! With %d Rows that are %d wide...", Path, Max_Row, Max_Data);
 					

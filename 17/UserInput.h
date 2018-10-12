@@ -3,13 +3,14 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #define str_LengthofInt 16
 
 int Read_Int(int *Number)
 {
 	//Reaqd the user input
-	char *UserInput = malloc(sizeof(char) * str_LengthofInt);
+	char UserInput[str_LengthofInt];
 	
 	char *rc;
 	
