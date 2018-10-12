@@ -117,9 +117,14 @@ int InteractiveLoop(struct DataBase *db)
 					debug("Lets make a DB at %s! With %d Rows that are %d wide...", Path, Max_Row, Max_Data);
 					
 					// create Empty DB
-					check(Database_create(Path, Max_Data, Max_Row), "Error Creating DataBase file");		
+					check(Database_create(Path, Max_Data, Max_Row), "Error Creating DataBase file");
+					
+					debug("That is done lets load this up and get started!");		
 					// Load DB
-					check(Database_Load(db), "Error Loading DB!");
+					db = Database_Init(Path);
+					check(db, "Error Loading DB!");
+					
+					debug("Loaded lets roll!");
 					free(Path);
 					break;
 				case 2: //Select
