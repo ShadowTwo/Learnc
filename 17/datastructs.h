@@ -214,6 +214,11 @@ int Save_Database(struct DataBase *db)
 	return 0;
 }
 
+int Add_Record_Whole(struct DataBase *db, struct Address *record)
+{
+	return Add_Record(db, record->ID, record->Name, record->Email);
+}
+
 int Add_Record(struct DataBase *db, int ID, char *Name, char *Email)
 {
 	//debug("Top of Add Record.");

@@ -55,6 +55,7 @@ int InteractiveLoop(struct DataBase *db)
 	int rc = 0;
 	char *rs = NULL;
 	char *Path;
+	struct Address record;
 	
 	printf("Welcome to Interactive Mode. Please entera selection:\n");
 	
@@ -69,6 +70,18 @@ int InteractiveLoop(struct DataBase *db)
 			switch(UserInput)
 			{
 				case 1:  //Add Record
+				
+					//Read a INT for Record Number
+					
+					//Read a String[Max_Data] for Name
+					
+					//Read a String[Max_Data] for Email
+				
+					// Add the Record
+					//Add_Record(struct DataBase *db, int ID, char *Name, char *Email)
+					//Save the Changes
+					//Database_Save?
+					debug("Add Record Complete.");
 					break;
 				case 2:
 					break;
@@ -120,10 +133,11 @@ int InteractiveLoop(struct DataBase *db)
 					check(Database_create(Path, Max_Data, Max_Row), "Error Creating DataBase file");
 					
 					debug("That is done lets load this up and get started!");		
-					// Load DB
+					// create DB Object
 					db = Database_Init(Path);
 					check(db, "Error Loading DB!");
-					
+					// Load DB into Memory
+					check(Database_Load(db), "Error Loading the Database...");
 					debug("Loaded lets roll!");
 					free(Path);
 					break;
