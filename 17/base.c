@@ -7,10 +7,6 @@
 #include "dbg.h"
 #include "interactive.h"
 
-
-
-
-
 int main(int argc, char *argv[])
 {
 	struct DataBase *db = NULL;

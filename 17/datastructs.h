@@ -155,15 +155,24 @@ int Database_Load(struct DataBase *db)
 	return 0;
 }
 
+void Print_Address(struct Address *Address)
+{
+	printf("id: %d\n", Address->ID);
+	printf("Set: %d\n", Address->set);
+	printf("Address->Name: '%s'\n", Address->Name);
+	printf("Address->Email: '%s'\n", Address->Email);
+}
+
 void Database_PrintRecord(struct DataBase *db, int ID)
 {
 	check(db->Rows[ID], "Record does not exist.")
-	printf("id: %d\n", db->Rows[ID]->ID);
-	printf("Set: %d\n", db->Rows[ID]->set);
-	printf("Address->Name: '%s'\n", db->Rows[ID]->Name);
-	printf("Address->Email: '%s'\n", db->Rows[ID]->Email);
+	Print_Address(db->Rows[ID]);
+	//printf("id: %d\n", db->Rows[ID]->ID);
+	//printf("Set: %d\n", db->Rows[ID]->set);
+	//printf("Address->Name: '%s'\n", db->Rows[ID]->Name);
+	//printf("Address->Email: '%s'\n", db->Rows[ID]->Email);
 	error:;
-}	
+}
 
 void Database_Print(struct DataBase *db)
 {
@@ -171,8 +180,7 @@ void Database_Print(struct DataBase *db)
 			
 	while(count < db->MAX_ROW)
 	{
-		
-		Database_PrintRecord(db, count);
+		if(db->Rows[count]->set) {Database_PrintRecord(db, count);} //Only Print records that are set.
 		count++;
 	}
 }	
@@ -201,8 +209,8 @@ int Save_Database(struct DataBase *db)
 		//Write Name
 		//check(fwrite(db->Rows[count]->Name, sizeof(char) * db->MAX_DATA, 1, db->file), "Error write name");
 		int mycheck = fwrite(db->Rows[count]->Name, sizeof(char) * db->MAX_DATA, 1, db->file);
-		debug("Saved Name: %s", db->Rows[count]->Name);
-		debug("Sizeof(Name): %ld\n Sizeof(Data): %ld\nData Writen: %d", sizeof(db->Rows[count]->Name), sizeof(char) * db->MAX_DATA, mycheck);
+		//debug("Saved Name: %s", db->Rows[count]->Name);
+		//debug("Sizeof(Name): %ld\n Sizeof(Data): %ld\nData Writen: %d", sizeof(db->Rows[count]->Name), sizeof(char) * db->MAX_DATA, mycheck);
 		//Write Email
 		check(fwrite(db->Rows[count]->Email, sizeof(char) * db->MAX_DATA, 1, db->file), "Error Writing Email");
 	}
@@ -212,11 +220,6 @@ int Save_Database(struct DataBase *db)
 	return 1;
 	error:
 	return 0;
-}
-
-int Add_Record_Whole(struct DataBase *db, struct Address *record)
-{
-	return Add_Record(db, record->ID, record->Name, record->Email);
 }
 
 int Add_Record(struct DataBase *db, int ID, char *Name, char *Email)
@@ -237,6 +240,11 @@ int Add_Record(struct DataBase *db, int ID, char *Name, char *Email)
 	error:
 	DataBase_Destory(db);
 	return 0;
+}
+
+int Add_Record_Whole(struct DataBase *db, struct Address *record)
+{
+	return Add_Record(db, record->ID, record->Name, record->Email);
 }
 
 int Remove_Record(struct DataBase *db, int ID)

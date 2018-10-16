@@ -54,8 +54,11 @@ int InteractiveLoop(struct DataBase *db)
 	int UserInput = 0;
 	int rc = 0;
 	char *rs = NULL;
-	char *Path;
+	char *Path = NULL;
 	struct Address record;
+	record.set =0;
+	record.Name = NULL;
+	record.Email = NULL;
 	
 	printf("Welcome to Interactive Mode. Please entera selection:\n");
 	
@@ -70,28 +73,54 @@ int InteractiveLoop(struct DataBase *db)
 			switch(UserInput)
 			{
 				case 1:  //Add Record
-				
+				    debug("Start of Add Record.");
 					//Read a INT for Record Number
+					printf("Which record do you wish to add>>");
+					check(Read_Int(&record.ID), "Failed to read ID.");
 					
 					//Read a String[Max_Data] for Name
+					printf("What is Contacts Name>>");
+					record.Name = malloc(db->MAX_DATA * sizeof(char));
+					rs = fgets(record.Name, db->MAX_DATA, stdin);
+					check(rs != NULL, "Failed to Read Name.");
+					
+					Remove_NewLine(record.Name, 255, 0);
 					
 					//Read a String[Max_Data] for Email
-				
+					printf("What is Contacts Email>>");
+					record.Email = malloc(db->MAX_DATA * sizeof(char));
+					rs = fgets(record.Email, db->MAX_DATA, stdin);
+					check(rs != NULL, "Failed to Read Email.");
+					
+					Remove_NewLine(record.Email, 255, 0);
+					
+					Print_Address(&record);
+					
 					// Add the Record
-					//Add_Record(struct DataBase *db, int ID, char *Name, char *Email)
+					check(Add_Record_Whole(db, &record), "Failed to Add Record.");
+					
 					//Save the Changes
-					//Database_Save?
+					check(Save_Database(db), "Failed to Save Database.");
+					
 					debug("Add Record Complete.");
 					break;
-				case 2:
+				case 2: // Delete Record
+					printf("Which record do you wish to Delete>>");
+					check(Read_Int(&record.ID), "Failed to read ID.");
+					Remove_Record(db, record.ID);
+					check(Save_Database(db), "Failed to Save Database.");
 					break;
-				case 3:
+				case 3: // Find Record
 					break;
-				case 4:
+				case 4: // Get Record
+					printf("Which record do you wish to Get>>");
+					check(Read_Int(&record.ID), "Failed to read ID.");
+					Database_PrintRecord(db, record.ID);
 					break;
-				case 5:
+				case 5: // List All
+					Database_Print(db);
 					break;
-				case 6:
+				case 6: // Quit
 					running = 0;
 					break;
 				default:
@@ -151,9 +180,12 @@ int InteractiveLoop(struct DataBase *db)
 			}
 		}
 		
-		
 		error:
 		if(Path) {free(Path);}
+
+		if(record.Name){free(record.Name);}
+		if(record.Email){free(record.Email);}
+
 		
 	} //end of while running loop
 	
