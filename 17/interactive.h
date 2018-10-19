@@ -19,6 +19,46 @@ int Remove_NewLine(char *theString, int MaxLength, int StartingPlace)
 	return 0; //no newline Found or the new line was at index 0.... 
 }
 
+char *SelectField(int MaxLength)
+{
+	if(MaxLength = 0) {MaxLength = 255;}
+	
+	char *field = malloc(sizeof(char) * MaxLength);
+	int selection = 0;
+	
+	check(field, "Error Allocating Memory for Field.");
+	
+	tryagain:
+	
+	printf("What Field do you wish to search?\n");
+	printf("\t1. Name\n");
+	printf("\t2. Email\n");
+	printf("\t3. Exit\n");
+	
+	check(Read_Int(&selection), "Failed to read field.");
+	
+	switch(selection)
+	{
+		case 1:
+			*field = "Name";
+			break;
+		case 2:
+			*field = "Email";
+			break;
+		case 3:
+			goto error;
+			break;
+		default:
+			printf("Invalid Selection");
+			goto tryagain;
+			break;
+	}
+	
+	return field;
+	error:
+	if (field) {free(field);}
+	return 0;
+}//end of SelectField
 
 void Print_Menu(struct DataBase *db)
 {
@@ -42,12 +82,6 @@ void Print_Menu(struct DataBase *db)
 	
 	printf(">> ");
 }
-
-char *Read_String()
-{
-	return "Not Done";
-}
-
 int InteractiveLoop(struct DataBase *db)
 {
 	int running = 1;
@@ -111,6 +145,17 @@ int InteractiveLoop(struct DataBase *db)
 					check(Save_Database(db), "Failed to Save Database.");
 					break;
 				case 3: // Find Record
+
+					// Read dbfield
+					record.Name = SelectField(255);
+					
+					check(record.Name, "");
+					// Read Searchstr
+					printf("Search for >>");
+					rs = fscanf(record.Email, db->MAX_DATA, stdin);
+					check(rs, "Failed to read search string");
+
+					DataBase_Search(db, record.Name, record.Email);
 					break;
 				case 4: // Get Record
 					printf("Which record do you wish to Get>>");

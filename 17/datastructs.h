@@ -280,6 +280,7 @@ int DataBase_Search(struct DataBase *db, char *dbfield, char *Searchstr)
 	
 	int count = 0;
 	int x = 0;
+	
 	for(x = 0; x < db->MAX_ROW; x++)
 	{
 		if (db->Rows[x]->set)
