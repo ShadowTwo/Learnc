@@ -40,10 +40,10 @@ char *SelectField(int MaxLength)
 	switch(selection)
 	{
 		case 1:
-			*field = "Name";
+			strncpy(field, "Name", MaxLength);
 			break;
 		case 2:
-			*field = "Email";
+			strncpy(field, "Email", MaxLength);
 			break;
 		case 3:
 			goto error;
@@ -152,7 +152,7 @@ int InteractiveLoop(struct DataBase *db)
 					check(record.Name, "");
 					// Read Searchstr
 					printf("Search for >>");
-					rs = fscanf(record.Email, db->MAX_DATA, stdin);
+					rs = fscanf(&(record.Email), db->MAX_DATA, stdin);
 					check(rs, "Failed to read search string");
 
 					DataBase_Search(db, record.Name, record.Email);
