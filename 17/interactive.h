@@ -152,8 +152,8 @@ int InteractiveLoop(struct DataBase *db)
 					check(record.Name, "");
 					// Read Searchstr
 					printf("Search for >>");
-					rs = fscanf(&(record.Email), db->MAX_DATA, stdin);
-					check(rs, "Failed to read search string");
+					rc = fscanf(record.Email, db->MAX_DATA, stdin);
+					check(rc, "Failed to read search string");
 
 					DataBase_Search(db, record.Name, record.Email);
 					break;
@@ -191,7 +191,7 @@ int InteractiveLoop(struct DataBase *db)
 
 					//Get File Name
 
-					fflush(stdin);
+					//fflush(stdin);
 
 					printf("Enter File name of Database>> ");
 					Path = malloc(255 * sizeof(char));
