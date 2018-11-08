@@ -1,12 +1,12 @@
 CFLAGS=-Wall -g
 Objects = logfind.o
 
-base : $(Objects)
-	cc -o base $(Objects)
+logfind: $(Objects)
+	cc -o logfind $(Objects)
 
-base.o : logfind.c dbg.h
-	cc -c base.c
+logfind.o: logfind.c dbg.h
+	cc -c logfind.c
 
-.PHONY : clean
-clean :
+.PHONY: clean
+clean:
 	rm -f base $(Objects)

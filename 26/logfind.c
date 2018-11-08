@@ -4,7 +4,7 @@
 
 #define MAX_DATA 1024
 #define Max_Number 10
-const char *LogLocation = "~/.logfile";
+const char *LogLocation = ".logfile";
 char *LogFiles[Max_Number];
 
 char *FileReadLine(FILE *file)
@@ -16,17 +16,19 @@ char *FileReadLine(FILE *file)
 	int rc = 0;
 	
 	check(NewLine, "Failed to Create NewLine");
+	//check(!feof(file), "End of File");
 	
 	while(count < MAX_DATA)
 	{
 		
 		rc = fread(&NextChar, sizeof(char), 1, file);
-		check(rc == 0, "Failed to Read to newline.");
-		debug("%c", NextChar);
-		if(NextChar == '\n' || feof(file)) 
+		debug("%d) %c - %d", count, NextChar, (int) NextChar);
+		
+		if (NextChar == ' ' && (!count) ) {goto error;}
+		else if(NextChar == '\n' || feof(file)) 
 		{
 			NewLine[count] = '\0'; 
-			goto outloop;
+			goto outloop; //break;?
 		}
 		else {NewLine[count] = NextChar;}
 		count++;
@@ -37,24 +39,27 @@ char *FileReadLine(FILE *file)
 	
 	error:	
 	if(NewLine){free(NewLine);}
-	return 0;	
+	return NULL;	
 }
 
 int GetLogsFromFile()
 {
 	int count = 0;
+	debug("Opening: %s", LogLocation);
 	FILE *file = fopen(LogLocation, "r");
 	
 	check(file, "Failed to open file.");
 	
-	while(!feof(file) && count < Max_Number)
+	do
 	{
 		LogFiles[count] = FileReadLine(file);
-		check(LogFiles[count], "Error Reading from File.");
+		//check(LogFiles[count], "Error Reading from File.");
+		
+		debug("%d) Log Found: %s EOF: %d", count, LogFiles[count], feof(file));
 		count++;
-	}
+	} while(LogFiles[count-1] && count < Max_Number && (!feof(file)));
 	
-	for(; count > 0; count--)
+	for(count--; count >= 0; count--)
 	{
 		printf("%d) %s\n", count, LogFiles[count]);
 	}
@@ -68,7 +73,8 @@ int GetLogsFromFile()
 
 int main(int argc, char *argv[])
 {
-	check(argc > 2, "Usage: Logfind [-o] Search1 [Search2 Search3 ...]");
+	debug("%d args entered!", argc);
+	check(argc > 1, "Usage: Logfind [-o] Search1 [Search2 Search3 ...]");
 	
 	//load files from `./logfind'
 	check(GetLogsFromFile(), "Error Reading logs");
