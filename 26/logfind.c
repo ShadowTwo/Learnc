@@ -140,16 +140,18 @@ int main(int argc, char *argv[])
 	check(argc > 1, "Usage: Logfind [-o] Search1 [Search2 Search3 ...]");
 	int count = 1;
 	int isAND = 1;
+	char *wholefile = NULL;
+	FILE *file = NULL;
 	
 	//default to search without case
 	strsearch thesearch = strcasestr;
-	if(argc > 2)
-	{
+	//if(argc > 2)
+	//{
 		debug("Start of Options loop. Argc(%d).", argc);
 		int x = 1;
 		for(;(x<3) && (x < argc);x++)
 		{
-			debug("Start of Loop %d", x);
+			debug("Start of Loop %d.", x);
 			if(strcmp(argv[x], "-o") == 0)
 			{
 				debug("Setting up for OR!");
@@ -162,22 +164,26 @@ int main(int argc, char *argv[])
 				count++;
 				thesearch = strstr;
 			}
-			debug("End of loop %d.", x);
+			debug("End of Option loop %d.", x);
 		}
-	}
+		debug("End of Option loop.");
+	//}
+	
+	debug("Argc(%d) and Count(%d)", argc, count);
+	check((count != argc), "No search arguments entered.");
 	
 	//load files from `./logfind'
 	check(GetLogsFromFile(), "Error Reading logs");
 	
 	//foreach log in list find argv'scd 
-	FILE *file = fopen(LogFiles[0], "r");
+	file = fopen(LogFiles[0], "r");
 	
 	check(file, "Failed to open the log");
 	
 	long unsigned int size = ReadtoEnd(file);
 	debug("The files is %ld bytes", size);
 	
-	char *wholefile = calloc(1, size);
+	wholefile = calloc(1, size);
 	
 	check(wholefile, "Failed to create memory.");
 	//check(!feof(file), "Found end of file.");
