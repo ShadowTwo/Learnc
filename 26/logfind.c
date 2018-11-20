@@ -7,7 +7,7 @@
 
 #define MAX_DATA 1024
 #define Max_Number 10
-const char *LogLocation = ".logfind";
+const char *LogLocation = ".logfile";
 char *LogFiles[Max_Number];
 
 //typedef for function for searching with or without case
@@ -134,40 +134,94 @@ int holdSearch(int argc, char *argv[], FILE *file)
 	return 0;
 }
 
-int main(int argc, char *argv[])
+int PrintArraySection(char *theArray, int ArrayMax, int StartIndex, int EndIndex)
 {
+	check(theArray, "Bad Array.");
+	if(EndIndex > ArrayMax) {EndIndex = ArrayMax; debug("Endindex set to end of array.");}
+	check(StartIndex < ArrayMax, "Cannot start past end of Array.");
+	if(StartIndex < 0){ StartIndex = 0; debug("Start index changed to 0.");}
+	check(EndIndex > StartIndex, "End Index must be larger then Start Index.");
+	
+	int x = StartIndex;
+	
+	debug("Starting at %d, and ending at %d", x, EndIndex);
+	for(; x < EndIndex; x++)
+	{
+		printf("%c", theArray[x]);
+	}
+	
+	return 1;
+	error:
+	return 0;
+}
+
+int Findall(char* haystack, int ArrayMax, char *needle, int *resultindex, int resultmax, strsearch Search_Method)
+{
+	check(ArrayMax && resultmax, "Arrays must larger than 0.");
+	check(haystack && resultindex, "Arrays not inialized.");
+	
+	char* Endhaystack = (haystack + ArrayMax);
+	
+	char *find = Search_Method(haystack, needle);
+	int x = 0;
+	if(find)
+	{
+		int needlelength = strlen(needle);
+		while(find)
+		{
+			char *Newhaystack = haystack + ((find - haystack) + needlelength);
+			if(Newhaystack < Endhaystack)
+			{
+				resultindex[x++] = find - haystack;
+				if(x >= resultmax) {break;}
+				find = Search_Method(Newhaystack, needle);
+			}
+			else {find = NULL;}
+		}
+		
+		return 1;
+	}
+	else {return 0;}//Not Found
+	
+	error:
+	return 0; 
+}
+
+
+int main(int argc, char *argv[])
+{	
 	debug("%d args entered!", argc);
-	check(argc > 1, "Usage: Logfind [-o] Search1 [Search2 Search3 ...]");
+	
 	int count = 1;
 	int isAND = 1;
 	char *wholefile = NULL;
 	FILE *file = NULL;
 	
+	check(argc > 1, "Usage: Logfind [-o] Search1 [Search2 Search3 ...]");
+	
 	//default to search without case
 	strsearch thesearch = strcasestr;
-	//if(argc > 2)
-	//{
-		debug("Start of Options loop. Argc(%d).", argc);
-		int x = 1;
-		for(;(x<3) && (x < argc);x++)
+
+	debug("Start of Options loop. Argc(%d).", argc);
+	int x = 1;
+	for(;(x<3) && (x < argc);x++)
+	{
+		debug("Start of Loop %d.", x);
+		if(strcmp(argv[x], "-o") == 0)
 		{
-			debug("Start of Loop %d.", x);
-			if(strcmp(argv[x], "-o") == 0)
-			{
-				debug("Setting up for OR!");
-				count++;
-				isAND = 0;
-			}
-			else if(strcmp(argv[x], "-c") == 0)
-			{
-				debug("Setting up case search");
-				count++;
-				thesearch = strstr;
-			}
-			debug("End of Option loop %d.", x);
+			debug("Setting up for OR!");
+			count++;
+			isAND = 0;
 		}
-		debug("End of Option loop.");
-	//}
+		else if(strcmp(argv[x], "-c") == 0)
+		{
+			debug("Setting up case search");
+			count++;
+			thesearch = strstr;
+		}
+		debug("End of Option loop %d.", x);
+	}
+	debug("End of Option loop");
 	
 	debug("Argc(%d) and Count(%d)", argc, count);
 	check((count != argc), "No search arguments entered.");
@@ -196,7 +250,7 @@ int main(int argc, char *argv[])
 	
 	//int count = 1;
 	
-	for(; count < argc; count++)
+	/*for(; count < argc; count++)
 	{
 		debug("Starting Arg(%d):[%s]\n", count, argv[count]);
 		char* find = thesearch(wholefile, argv[count]);
@@ -205,12 +259,39 @@ int main(int argc, char *argv[])
 		if(find) 
 		{  //found a patten need to go to next pattern.
 			debug("The string [%s] was found!", argv[count]);
+		 	debug("Wholefile - file = %d", (int) (find - wholefile));
+		 	int middleindex = (int)(find - wholefile);
+		 	check(PrintArraySection(wholefile, size, middleindex - 30, middleindex + 30), "Error Printing Sub Section of Array");
 		}
 		else if(isAND) 
 		{
 			printf("String [%s] not Found!\n", argv[count]);
 			goto error;
-		}//Not found so and we are not on or.
+		}//Not found and we are not on or.
+		else {debug("Did not find %s.", argv[count]);} 
+	}*/
+	
+	for(; count < argc; count++)
+	{
+		int ResultIndexs[Max_Number] = {0};
+		
+		int rc = Findall(wholefile, size, argv[count], ResultIndexs, Max_Number, thesearch);
+		if(rc)
+		{
+			int x = 0;
+			while(ResultIndexs[x] && x < Max_Number)
+			{
+				debug("Result[%d] = %d", x, ResultIndexs[x]);
+				PrintArraySection(wholefile, size, ResultIndexs[x]-30, ResultIndexs[x]+30);
+				printf("\n");
+				x++;
+			}
+		}
+		else if(isAND)
+		{
+			printf("String [%s] not Found!\n", argv[count]);
+			goto error;
+		}//Not found and we are not on or.
 		else {debug("Did not find %s.", argv[count]);} 
 	}
 	
