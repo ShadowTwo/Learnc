@@ -10,6 +10,15 @@
 const char *LogLocation = ".logfile";
 char *LogFiles[Max_Number];
 
+typedef struct ReturnIndex
+{
+	int count;
+	char *needle;
+	int *Indexes;
+} ReturnIndex;
+
+
+
 //typedef for function for searching with or without case
 typedef char *(*strsearch)(const char *haystack, const char *needle);
 
@@ -134,6 +143,17 @@ int holdSearch(int argc, char *argv[], FILE *file)
 	return 0;
 }
 
+//Function to load array with index found for the needle
+//return success or fail
+
+
+//Function to print out each index found and there count
+
+
+//Function to order the array indexes
+
+
+
 int PrintArraySection(char *theArray, int ArrayMax, int StartIndex, int EndIndex)
 {
 	check(theArray, "Bad Array.");
@@ -155,11 +175,15 @@ int PrintArraySection(char *theArray, int ArrayMax, int StartIndex, int EndIndex
 	return 0;
 }
 
-int Findall(char* haystack, int ArrayMax, char *needle, int *resultindex, int resultmax, strsearch Search_Method)
+
+//Return < 0 on error, 0 for nothing found, or the total number of indexes found
+int Findall(char* haystack, int ArrayMax, char *needle, ReturnIndex *resultindex, int resultmax, strsearch Search_Method)
 {
 	check(ArrayMax && resultmax, "Arrays must larger than 0.");
 	check(haystack && resultindex, "Arrays not inialized.");
+	check(resultindex || resultindex->Indexes, "Result Location can not be NULL.");
 	
+	//do i need to check that the string is termed in \0?
 	char* Endhaystack = (haystack + ArrayMax);
 	
 	char *find = Search_Method(haystack, needle);
@@ -172,21 +196,48 @@ int Findall(char* haystack, int ArrayMax, char *needle, int *resultindex, int re
 			char *Newhaystack = haystack + ((find - haystack) + needlelength);
 			if(Newhaystack < Endhaystack)
 			{
-				resultindex[x++] = find - haystack;
+				resultindex->Indexes[x++] = find - haystack;
 				if(x >= resultmax) {break;}
 				find = Search_Method(Newhaystack, needle);
 			}
 			else {find = NULL;}
 		}
-		
-		return 1;
+		resultindex->count = x;
+		return x;
 	}
 	else {return 0;}//Not Found
 	
 	error:
-	return 0; 
+	return -1; 
 }
 
+//Create Index Arrays
+int CreateRecordIndexArrayes(ReturnIndex *returnindex, int size, char *needle)
+{
+	check(returnindex, "Null ReturnIndex.");
+	check(size > 0, "Size must greater than 0.");
+	
+	returnindex->count = size;
+	returnindex->needle = needle;
+	returnindex->Indexes = calloc(1, sizeof(int) * size);
+	
+	check(returnindex->Indexes, "Failed to create indexes array.");
+	
+	return 1;
+	
+	error:
+	return -1;
+}
+
+//Goes through each arg and find the closes indexes and return a Point to int array with each index. 
+//Max length of the array is total number of arguments
+int *FindCloseIndexes(ReturnIndex *returnindex, int Needle, int Index, int MaxDistance)
+{
+
+	return 1;
+	error:
+	return 0;
+}
 
 int main(int argc, char *argv[])
 {	
@@ -196,6 +247,7 @@ int main(int argc, char *argv[])
 	int isAND = 1;
 	char *wholefile = NULL;
 	FILE *file = NULL;
+	ReturnIndex *ReturnIndex_Array = NULL;
 	
 	check(argc > 1, "Usage: Logfind [-o] Search1 [Search2 Search3 ...]");
 	
@@ -248,35 +300,27 @@ int main(int argc, char *argv[])
 	
 	check(rc, "Failed to read %s", LogFiles[0]);
 	
-	//int count = 1;
 	
-	/*for(; count < argc; count++)
+	// find each each with out error
+	
+	
+	int totalargs = argc - count;
+	
+	ReturnIndex_Array = calloc(1, sizeof(ReturnIndex)*totalargs);
+	
+	int currentarg = 0;
+	
+	for(; count < argc; count++, currentarg++)
 	{
-		debug("Starting Arg(%d):[%s]\n", count, argv[count]);
-		char* find = thesearch(wholefile, argv[count]);
-	
-		debug("Find return(%p).", find);
-		if(find) 
-		{  //found a patten need to go to next pattern.
-			debug("The string [%s] was found!", argv[count]);
-		 	debug("Wholefile - file = %d", (int) (find - wholefile));
-		 	int middleindex = (int)(find - wholefile);
-		 	check(PrintArraySection(wholefile, size, middleindex - 30, middleindex + 30), "Error Printing Sub Section of Array");
-		}
-		else if(isAND) 
-		{
-			printf("String [%s] not Found!\n", argv[count]);
-			goto error;
-		}//Not found and we are not on or.
-		else {debug("Did not find %s.", argv[count]);} 
-	}*/
-	
-	for(; count < argc; count++)
-	{
-		int ResultIndexs[Max_Number] = {0};
+		ReturnIndex *ResultIndex_ptr = &(ReturnIndex_Array[currentarg]);
 		
-		int rc = Findall(wholefile, size, argv[count], ResultIndexs, Max_Number, thesearch);
-		if(rc)
+		rc = CreateRecordIndexArrayes(ResultIndex_ptr, Max_Number, argv[count]);
+		
+		check(rc > 0, "Failed to create index Arrayes.");
+		
+		
+		int rc = Findall(wholefile, size, argv[count], ResultIndex_ptr, Max_Number, thesearch);
+		/*if((!rc) && isAND) // make quick out for AND check (Not rc and isAND)
 		{
 			int x = 0;
 			while(ResultIndexs[x] && x < Max_Number)
@@ -292,15 +336,59 @@ int main(int argc, char *argv[])
 			printf("String [%s] not Found!\n", argv[count]);
 			goto error;
 		}//Not found and we are not on or.
-		else {debug("Did not find %s.", argv[count]);} 
+		else {debug("Did not find %s.", argv[count]);} */
 	}
 	
+	//search through each arg to see if all are found to check for and condition
 	
+	if(isAND)
+	{
+		int x = 0;
+		while (x<currentarg)
+		{
+			if(!(ReturnIndex_Array[x++].Indexes[0]))
+			{
+				printf("Failed to Find a Result for '%s'.", ReturnIndex_Array[--x].needle);
+				return 0; //this needs to goto end of current log loop
+			}
+		}
+	}
+	
+	//Sort Restults
+	debug("Total Search Args: %d, ", totalargs);
+	int y;
+	
+	for(y = 0; y < totalargs; y++)
+	{
+		int z;
+		debug("There %d entrys for '%s': ", ReturnIndex_Array->count, ReturnIndex_Array->needle);
+		for(z=0; z < ReturnIndex_Array[y].count; z++)
+		{
+			debug("\t%d", ReturnIndex_Array[y].Indexes[z]);
+		}
+	} 
+	
+	// find close results
+	
+	//repeat for each log file
+	//need to clean all int points for resultindex
+	if(ReturnIndex_Array)
+	{
+		int x = 0;
+		for(x = 0; x < totalargs; x++) {free(ReturnIndex_Array[x].Indexes);}
+		free(ReturnIndex_Array);
+	}
 	fclose(file);
 	free(wholefile);
 	return 1;
 	error:
 	if(file) {fclose(file);}
 	if(wholefile) {free(wholefile);}
-	return 0;
+	if(ReturnIndex_Array)
+	{
+		int x = 0;
+		for(x = 0; x < totalargs; x++) {free(ReturnIndex_Array[x].Indexes);}
+		free(ReturnIndex_Array);
+	}
+	return -1;
 }//end of main
