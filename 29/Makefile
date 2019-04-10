@@ -8,7 +8,7 @@ OBJECTS = $(patsubst %.c,%.o,$(SOURCES))
 TEST_SRC=${wildcard tests/*_tests.c)
 TESTS=$(patsubst %.c,%,${TEST_SRC))
 
-TARGET=build/libYOU_LIBRARY.a
+TARGET=build/libex29.so
 SO_TARGET=$(patsubst %.a, %.so,$(TARGET))
 
 # The Target Build

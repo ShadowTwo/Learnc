@@ -5,11 +5,12 @@ PREFIX?=/usr/local
 SOURCES=$(wildcard src/**/*.c /src/*.c)
 OBJECTS = $(patsubst %.c,%.o,$(SOURCES))
 
-TEST_SRC=${wildcard tests/*_tests.c)
-TESTS=$(patsubst %.c,%,${TEST_SRC))
+TEST_SRC=$(wildcard tests/*_tests.c)
+
+TESTS=$(patsubst %.c,%,$(TEST_SRC))
 
 TARGET=build/libYOU_LIBRARY.a
-SO_TARGET=$(patsubst %.a, %.so,$(TARGET))
+SO_TARGET=$(patsubst %.a,%.so,$(TARGET))
 
 # The Target Build
 all: $(TARGET) $(SO_TARGET) tests
