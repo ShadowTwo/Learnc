@@ -2,11 +2,11 @@ CFLAGS=-Wall -g -O2 -Wextra -Isrc -rdynamic -DNDEBUG $(OPTFLAGS)
 LIBS=-ldl $(OPTLIBS)
 PREFIX?=/usr/local
 
-SOURCES=$(wildcard src/**/*.c /src/*.c)
+SOURCES=$(wildcard src/**/*.c src/*.c)
 OBJECTS = $(patsubst %.c,%.o,$(SOURCES))
 
-TEST_SRC=${wildcard tests/*_tests.c)
-TESTS=$(patsubst %.c,%,${TEST_SRC))
+TEST_SRC=$(wildcard tests/*_tests.c)
+TESTS=$(patsubst %.c,%,$(TEST_SRC))
 
 TARGET=build/libex29.so
 SO_TARGET=$(patsubst %.a, %.so,$(TARGET))
@@ -51,4 +51,7 @@ intsall: all
 check:
 	@echo Files with potentially Dangerous Functions.
 	@egrep '[^_.>a-zA-Z0-9](str(n?cpy|n?cat|xfrm|n?dup|str|pbrk|tok|_)\|stpn?cpy|a?sn?printf|byte_)' $(SOURCES) || true
+	
+#debug items
+print-%  : ; @echo $* = $($*)
 
