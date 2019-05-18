@@ -9,7 +9,7 @@ TEST_SRC=$(wildcard tests/*_tests.c)
 TESTS=$(patsubst %.c,%,$(TEST_SRC))
 
 TARGET=build/libex29.so
-SO_TARGET=$(patsubst %.a, %.so,$(TARGET))
+SO_TARGET=$(patsubst %.a,%.so,$(TARGET))
 
 # The Target Build
 all: $(TARGET) $(SO_TARGET) tests
@@ -23,6 +23,7 @@ $(TARGET): build $(OBJECTS)
 	ranlib $@
 	
 $(SO_TARGET): $(TARGET) $(OBJECTS)
+	@echo CCing SO_TARGET
 	$(CC) -shared -o $@ $(OBJECTS)
 
 build:
@@ -43,7 +44,7 @@ clean:
 	rm -rf 'find . -name "*.dSYM" -print'
 
 #The Install
-intsall: all
+install: all
 	install -d $(DSTDIR)/$(PREFIX)/lib/
 	install $(TARGET) $(DESTDIR)/$(PREFIX)/lib/
 
