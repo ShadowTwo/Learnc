@@ -1,0 +1,41 @@
+#include "minunit.h"
+
+//Create a Function that rerturns a Char * for each function to test
+char *test_dlopen()
+{
+	return NULL;
+}
+
+char *test_functions()
+{
+	return NULL;
+}
+
+char *test_failures()
+{
+	return NULL;
+}
+
+char *test_dlclose()
+{
+	return NULL;
+}
+
+char *all_tests()
+{
+	mu_suite_start();
+	//create a run test for each function above.
+	mu_run_test(test_dlopen);
+	mu_run_test(test_functions);
+	mu_run_test(test_failures);
+	mu_run_test(test_dlclose);
+	
+	return NULL;
+}
+
+RUN_TESTS(all_tests);
+
+/*char * 
+{
+	return NULL;
+}*/
