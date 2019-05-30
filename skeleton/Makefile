@@ -8,34 +8,42 @@ OBJECTS = $(patsubst %.c,%.o,$(SOURCES))
 TEST_SRC=$(wildcard tests/*_tests.c)
 TESTS=$(patsubst %.c,%,$(TEST_SRC))
 
-TARGET=build/libex29.so
+TARGET=build/libex29.a
 SO_TARGET=$(patsubst %.a,%.so,$(TARGET))
+SO_OBJECT=$(patsubst build/%.a,src/%.o,$(TARGET))
 
 # The Target Build
-all: $(TARGET) $(SO_TARGET) tests
+all: $(TARGET) $(SO_TARGET) $(SO_OBJECT) tests
+	@echo IN All
 
 dev: CFLAGS=-g -Wall -Isrc -Wall -Wextra $(OPTFLAGS)
 dev: all
 
 $(TARGET): CFLAGS += -fPIC
-$(TARGET): build $(OBJECTS)
-	ar rcs $@ $(OBJECTS)
+$(TARGET): build $(SO_OBJECT) $(OBJECTS)
+	@echo IN Target
+	ar rcs $@ $(SO_OBJECT)
 	ranlib $@
-	
-$(SO_TARGET): $(TARGET) $(OBJECTS)
-	@echo CCing SO_TARGET
-	$(CC) -shared -o $@ $(OBJECTS)
+
+$(SO_TARGET): $(TARGET) $(SO_OBJECT)
+	@echo IN SO_TARGET
+	$(CC) -shared -o $@ $(SO_OBJECT)
 
 build:
+	@echo IN BUILD
 	@mkdir -p build
 	@mkdir -p bin
 
 #the Unit Tests
 .PHONY: tests
-tests: CFLAGS += $(TARGET)
+#tests: CFLAGS += $(TARGET)
 tests: $(TESTS)
+	@echo IN TESTS
 	sh ./tests/runtests.sh
-
+	
+$(TESTS): $(TEST_SRC)
+	@echo IN TESTS CC
+	$(CC) -Wall -g -DNDEBUG $(TEST_SRC) -ldl -o $(TESTS)
 #The Cleaner
 clean:
 	rm -rf build $(OBJECTS) $(TESTS)

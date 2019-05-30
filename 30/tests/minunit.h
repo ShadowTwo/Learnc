@@ -18,7 +18,7 @@
 		argc = 0;\
 		argc++;\
 		debug("----Running: %s", argv[0]); \
-		printf("-----\nRunning: %s", argv[0]);\
+		printf("-----\nRunning: %s\n", argv[0]);\
 		char *result = name();\
 		if (result != 0)\
 		{\
