@@ -55,21 +55,27 @@ char *test_bubble_sort()
 	debug("Post Bubble: %d", rc);
 	Print_List(words);
 	
+	debug("Testing Inital sort...");
 	mu_assert(rc == 1, "Bubble Sort Failed");
 	mu_assert(is_sorted(words), "Words are not Sorted after Bubble Sort");
+	debug("...Passed");
 	
+	debug("Testing PreSorted sort...");
 	rc = List_bubble_sort(words, (List_compare) strcmp);
 	mu_assert(rc == 1, "Bubble sort Failed of already sorted failed.");
 	mu_assert(is_sorted(words), "Words should be already sorted by bubble sort.");
-	
+	debug("...Passed");
+
 	List_destroy(words);
 	
+	debug("Testing Empty List sort...");
 	words = List_create();
 	
 	rc = List_bubble_sort(words, (List_compare) strcmp);
 	mu_assert(rc == 1, "Bubble sort failed on empty list.");
 	mu_assert(is_sorted(words), "Words should be sorted if empty.");
-	
+	debug("...Passed");
+
 	List_destroy(words);
 	
 	return NULL;
