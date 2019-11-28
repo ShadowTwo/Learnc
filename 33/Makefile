@@ -16,7 +16,7 @@ SO_OBJECT=$(patsubst build/%.a,src/%.o,$(TARGET))
 all: $(TARGET) $(SO_TARGET) tests
 	@echo IN All
 
-dev: CFLAGS=-g -Wall -Isrc -Wall -Wextra $(OPTFLAGS)
+dev: CFLAGS=-g -Wall -Isrc -Wextra $(OPTFLAGS)
 dev: all
 
 $(TARGET): CFLAGS += -fPIC

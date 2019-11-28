@@ -84,12 +84,26 @@ char *test_bubble_sort()
 char *test_merge_sort()
 {
 	List *words = Create_words();
+	debug("Pre Merge:");
+	Print_List(words);
 	
 	List *res = List_merge_sort(words, (List_compare) strcmp);
 	mu_assert(is_sorted(res), "Words are not sorted after merge sort.");
 	
+	debug("Post Merge:");
+	Print_List(res);
+	
+	debug("...Passed");
+	debug("Testing presorted Merge...");
+	
+	Print_List(res);
+	
 	List *res2 = List_merge_sort(res, (List_compare) strcmp);
 	mu_assert(is_sorted(res2), "Should still be sorted after merge sort.");
+	
+	Print_List(res2);
+	
+	debug("...Passed");
 	
 	List_destroy(res2);
 	List_destroy(res);
