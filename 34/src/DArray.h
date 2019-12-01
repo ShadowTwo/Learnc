@@ -6,12 +6,12 @@
 
 typedef struct DArray
 {
-	int end;
+	int end; //used like count
 	int max;
 	size_t element_size;
 	size_t expand_rate;
 	void **contents;
-}
+} DArray;
 
 DArray *DArray_create(size_t element_size, size_t initial_max);
 
@@ -22,7 +22,7 @@ int DArray_expand(DArray *array);
 int DArray_contract(DArray *array);
 
 int DArray_push(DArray *array, void *el);
-void *DArray_pop(DArray *array(;
+void *DArray_pop(DArray *array);
 
 void DArray_clear_destroy(DArray *array);
 
@@ -38,7 +38,7 @@ void DArray_clear_destroy(DArray *array);
 
 static inline void DArray_set(DArray *array, int i, void *el)
 {
-	check(i<array->max, "Darray attemp set past max(%d)($d)!", array->max, i);
+	check(i<array->max, "Darray attemp set past max(%d)(%d)!", array->max, i);
 
 	if(i > array->end)
 	{
@@ -52,13 +52,16 @@ static inline void DArray_set(DArray *array, int i, void *el)
 
 static inline void *DArray_get(DArray *array, int i)
 {
-	check(i<max, "Attemp access outside of DArray.");
+	check(i < array->max, "Attemp access outside of DArray.");
 	return array->contents[i];
+	
+	error:
+	return NULL;
 }
 
-static inline void *DArray_remove(DArray *array, int i);
+static inline void *DArray_remove(DArray *array, int i)
 {
-	check(i<array->max, "Attemp access outside of DArray.");
+	check(i < array->max, "Attemp access outside of DArray.");
 	void *el = array->contents[i];
 
 	array->contents[i] = NULL;
@@ -68,15 +71,14 @@ static inline void *DArray_remove(DArray *array, int i);
 	return NULL;
 }
 
-static inline DArray *DArray_new(DArray *array)
+static inline void *DArray_new(DArray *array)
 {
-	check(array->element_size > 0, "Can't use DArray on 0 size DArrays.");
+	check(array->element_size > 0, "Can't use DArray on 0 size elements.");
 
 	return calloc(1, array->element_size);
 
 	error:
-	return NULL
+	return NULL;
 }
 
 #endif
-
