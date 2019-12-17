@@ -8,7 +8,7 @@ int DArray_copy_contents(DArray *array, void **new_contents)
 {
 	check(array, "Array cannot be NULL.");
 	check(array->end < array->max, "Array end past max.");
-
+	
 	void **old_contents = array->contents;
 	array->contents = new_contents;
 
@@ -34,7 +34,7 @@ DArray *DArray_create(size_t element_size, size_t initial_max)
 
 	check(new, "Failed to create new array.");
 
-	new->contents = calloc(initial_max, element_size);
+	new->contents = calloc(initial_max, sizeof(void *));
 
 	check(new->contents, "Failed to create Contents.");
 
@@ -81,10 +81,10 @@ int DArray_expand(DArray *array)
 {
 	check(array, "Array cannot be Null.");
 	
-    void **new_c = calloc(array->max + array->expand_rate, array->element_size);
-	check(new_c, "Failed to create new array.");
-
 	array->max = array->max + array->expand_rate;
+    
+	void **new_c = calloc(array->max, array->element_size);
+	check(new_c, "Failed to create new array.");
 	
 	DArray_copy_contents(array, new_c);
     

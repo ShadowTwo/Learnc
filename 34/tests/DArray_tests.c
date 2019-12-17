@@ -1,6 +1,7 @@
 #include "minunit.h"
 #include "../shared/dbg.h"
 #include "../src/DArray.h"
+#include <stdio.h>
 
 static DArray *array = NULL;
 static int *val[2] = {NULL, NULL};
@@ -13,6 +14,72 @@ char *test_create()
 	mu_assert(array->end == 0, "End isn't at the right spot.");
 	mu_assert(array->element_size == sizeof(int), "Element size is wrong.");
 	mu_assert(array->max == 100, "Wrong max length on initial size.");
+
+	return NULL;
+}
+
+
+void Print_Array(DArray array)
+{
+	
+	printf("Base array: %p", (void *)(array.contents));
+	int x = 0;
+	for(x = 0; x < DArray_max(array); x++)
+	{
+		debug("(%p) %p : %d", &array->contents[x], *array->contents[x], array->contents[x]); 
+	}
+
+}
+
+char *test_ryan()
+{
+	array = DArray_create(sizeof(int), 5);
+	array->expand_rate = 5;
+	
+	debug("Before adding:");
+	Print_Array(array);
+
+	int i = 0;
+	int z = 0;
+	 
+	debug("Pushing Values into Array...");
+	for(i=0; i<15; i++)
+	{
+		debug("Pushing: %d", i);
+		
+		if(i == 5)
+		{
+			z++;
+			debug("Before expand");
+			Print_Array(array);
+		}
+
+		int *val = DArray_new(array);
+		*val = i;
+		DArray_push(array, val);
+
+		if(z)
+		{
+			debug("After expand:");
+			Print_Array(array);
+			z = 0;
+		}
+	}
+
+	debug("...Done\nChecking Size....");
+	mu_assert(array->max == 16, "Wrong max size.");
+
+	
+	debug("...Done\nPoping...."); 
+
+	for(i = 14; i >= 0; i--)
+	{
+		int *val = DArray_pop(array);
+		mu_assert(val != NULL, "Shouldn't be NULL.");
+		mu_assert(*val == i, "Wrong Value.");
+		DArray_free(val);
+	}
+	debug("...Done.");
 
 	return NULL;
 }
@@ -123,14 +190,16 @@ char *all_tests()
 {
 	mu_suite_start();
 
-	mu_run_test(test_create);
-	mu_run_test(test_new);
-	mu_run_test(test_set);
-	mu_run_test(test_get);
-	mu_run_test(test_remove);
-	mu_run_test(test_expand_contract);
-	mu_run_test(test_push_pop);
-	mu_run_test(test_destroy);
+	//mu_run_test(test_create);
+	//mu_run_test(test_new);
+	//mu_run_test(test_set);
+	//mu_run_test(test_get);
+	//mu_run_test(test_remove);
+	//mu_run_test(test_expand_contract);
+	//mu_run_test(test_push_pop);
+	//mu_run_test(test_destroy);
+
+	mu_run_test(test_ryan);
 
 	return NULL;
 }
