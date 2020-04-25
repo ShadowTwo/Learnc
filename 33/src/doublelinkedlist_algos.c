@@ -116,7 +116,7 @@ List *List_merge_sort(List *list, List_compare cmp)
 		l = List_merge_sort(l, cmp);
 		r = List_merge_sort(r,cmp);
 
-		return List_merge_merge(list, r, l, cmp);
+		return List_merge_merge(r, l, cmp);
 	}
 
 	error:
