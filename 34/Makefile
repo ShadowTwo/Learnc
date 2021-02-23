@@ -8,7 +8,7 @@ OBJECTS = $(patsubst %.c,%.o,$(SOURCES))
 TEST_SRC=$(wildcard tests/*_tests.c)
 TESTS=$(patsubst %.c,%,$(TEST_SRC))
 
-TARGET=build/doublelinkedlist.a
+TARGET=build/DArray.a
 SO_TARGET=$(patsubst %.a,%.so,$(TARGET))
 SO_OBJECT=$(patsubst build/%.a,src/%.o,$(TARGET))
 
@@ -16,7 +16,7 @@ SO_OBJECT=$(patsubst build/%.a,src/%.o,$(TARGET))
 all: $(TARGET) $(SO_TARGET) tests
 	@echo IN All
 
-dev: CFLAGS=-g -Wall -Isrc -Wextra $(OPTFLAGS)
+dev: CFLAGS=-g -Wall -Isrc -Wall -Wextra $(OPTFLAGS)
 dev: all
 
 $(TARGET): CFLAGS += -fPIC

@@ -1,0 +1,357 @@
+[DEBUG] (tests/list_algos_tests.c:112): ----Running: ./tests/list_algos_tests
+[DEBUG] (tests/list_algos_tests.c:106): 
+----- test_bubble_sort
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:53): Adding to an Empty List. First((nil)), Last((nil))
+[DEBUG] (src/doublelinkedlist.c:56): Fishing updating first,last
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/list_algos_tests.c:52): Pre Bubble:
+[DEBUG] (tests/list_algos_tests.c:43): 0 XXXX
+[DEBUG] (tests/list_algos_tests.c:43): 1 1234
+[DEBUG] (tests/list_algos_tests.c:43): 2 abcd
+[DEBUG] (tests/list_algos_tests.c:43): 3 xjvef
+[DEBUG] (tests/list_algos_tests.c:43): 4 NDSS
+[DEBUG] (src/doublelinkedlist_algos.c:10): Start of Bubble Sort...
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'NDSS', Cur2 is 'xjvef' rc is -42
+[DEBUG] (src/doublelinkedlist_algos.c:24): Exchanging Value
+[DEBUG] (src/doublelinkedlist_algos.c:26): Temp Created
+[DEBUG] (src/doublelinkedlist_algos.c:28): Cur2 value moved to cur
+[DEBUG] (src/doublelinkedlist_algos.c:30): Cur value set to temp
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'NDSS', Cur2 is 'abcd' rc is -19
+[DEBUG] (src/doublelinkedlist_algos.c:24): Exchanging Value
+[DEBUG] (src/doublelinkedlist_algos.c:26): Temp Created
+[DEBUG] (src/doublelinkedlist_algos.c:28): Cur2 value moved to cur
+[DEBUG] (src/doublelinkedlist_algos.c:30): Cur value set to temp
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'NDSS', Cur2 is '1234' rc is 29
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is '1234', Cur2 is 'XXXX' rc is -39
+[DEBUG] (src/doublelinkedlist_algos.c:24): Exchanging Value
+[DEBUG] (src/doublelinkedlist_algos.c:26): Temp Created
+[DEBUG] (src/doublelinkedlist_algos.c:28): Cur2 value moved to cur
+[DEBUG] (src/doublelinkedlist_algos.c:30): Cur value set to temp
+[DEBUG] (src/doublelinkedlist_algos.c:36): Jumping to end of sort
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'xjvef', Cur2 is 'abcd' rc is 23
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'abcd', Cur2 is 'NDSS' rc is 19
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'NDSS', Cur2 is 'XXXX' rc is -10
+[DEBUG] (src/doublelinkedlist_algos.c:24): Exchanging Value
+[DEBUG] (src/doublelinkedlist_algos.c:26): Temp Created
+[DEBUG] (src/doublelinkedlist_algos.c:28): Cur2 value moved to cur
+[DEBUG] (src/doublelinkedlist_algos.c:30): Cur value set to temp
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'NDSS', Cur2 is '1234' rc is 29
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:36): Jumping to end of sort
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'xjvef', Cur2 is 'abcd' rc is 23
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'abcd', Cur2 is 'XXXX' rc is 9
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'XXXX', Cur2 is 'NDSS' rc is 10
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'NDSS', Cur2 is '1234' rc is 29
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:36): Jumping to end of sort
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'xjvef', Cur2 is 'abcd' rc is 23
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'abcd', Cur2 is 'XXXX' rc is 9
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'XXXX', Cur2 is 'NDSS' rc is 10
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'NDSS', Cur2 is '1234' rc is 29
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:36): Jumping to end of sort
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'xjvef', Cur2 is 'abcd' rc is 23
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'abcd', Cur2 is 'XXXX' rc is 9
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'XXXX', Cur2 is 'NDSS' rc is 10
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'NDSS', Cur2 is '1234' rc is 29
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:36): Jumping to end of sort
+[DEBUG] (src/doublelinkedlist_algos.c:43): End of bubble sort
+[DEBUG] (tests/list_algos_tests.c:57): Post Bubble: 1
+[DEBUG] (tests/list_algos_tests.c:43): 0 1234
+[DEBUG] (tests/list_algos_tests.c:43): 1 NDSS
+[DEBUG] (tests/list_algos_tests.c:43): 2 XXXX
+[DEBUG] (tests/list_algos_tests.c:43): 3 abcd
+[DEBUG] (tests/list_algos_tests.c:43): 4 xjvef
+[DEBUG] (src/doublelinkedlist_algos.c:10): Start of Bubble Sort...
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'xjvef', Cur2 is 'abcd' rc is 23
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'abcd', Cur2 is 'XXXX' rc is 9
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'XXXX', Cur2 is 'NDSS' rc is 10
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'NDSS', Cur2 is '1234' rc is 29
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:36): Jumping to end of sort
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'xjvef', Cur2 is 'abcd' rc is 23
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'abcd', Cur2 is 'XXXX' rc is 9
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'XXXX', Cur2 is 'NDSS' rc is 10
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'NDSS', Cur2 is '1234' rc is 29
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:36): Jumping to end of sort
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'xjvef', Cur2 is 'abcd' rc is 23
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'abcd', Cur2 is 'XXXX' rc is 9
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'XXXX', Cur2 is 'NDSS' rc is 10
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'NDSS', Cur2 is '1234' rc is 29
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:36): Jumping to end of sort
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'xjvef', Cur2 is 'abcd' rc is 23
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'abcd', Cur2 is 'XXXX' rc is 9
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'XXXX', Cur2 is 'NDSS' rc is 10
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'NDSS', Cur2 is '1234' rc is 29
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:36): Jumping to end of sort
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'xjvef', Cur2 is 'abcd' rc is 23
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'abcd', Cur2 is 'XXXX' rc is 9
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'XXXX', Cur2 is 'NDSS' rc is 10
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:21): Cur is 'NDSS', Cur2 is '1234' rc is 29
+[DEBUG] (src/doublelinkedlist_algos.c:32): Not exchanging value.
+[DEBUG] (src/doublelinkedlist_algos.c:36): Jumping to end of sort
+[DEBUG] (src/doublelinkedlist_algos.c:43): End of bubble sort
+[DEBUG] (src/doublelinkedlist.c:12): Starting destroy proccess...(0x7fff137e1ea8::0x55ec13bab670)
+[DEBUG] (src/doublelinkedlist.c:17): Done Freeing All nodes
+[DEBUG] (src/doublelinkedlist.c:19): Done Freeing Last
+[DEBUG] (src/doublelinkedlist.c:21): Done Freeing List
+[DEBUG] (src/doublelinkedlist_algos.c:10): Start of Bubble Sort...
+[DEBUG] (src/doublelinkedlist_algos.c:43): End of bubble sort
+[DEBUG] (src/doublelinkedlist.c:12): Starting destroy proccess...(0x7fff137e1ea8::0x55ec13bab730)
+[DEBUG] (src/doublelinkedlist.c:17): Done Freeing All nodes
+[DEBUG] (src/doublelinkedlist.c:19): Done Freeing Last
+[DEBUG] (src/doublelinkedlist.c:21): Done Freeing List
+[DEBUG] (tests/list_algos_tests.c:107): 
+----- test_merge_sort
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:53): Adding to an Empty List. First((nil)), Last((nil))
+[DEBUG] (src/doublelinkedlist.c:56): Fishing updating first,last
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/list_algos_tests.c:83): Merg PreSort:
+[DEBUG] (tests/list_algos_tests.c:43): 0 XXXX
+[DEBUG] (tests/list_algos_tests.c:43): 1 1234
+[DEBUG] (tests/list_algos_tests.c:43): 2 abcd
+[DEBUG] (tests/list_algos_tests.c:43): 3 xjvef
+[DEBUG] (tests/list_algos_tests.c:43): 4 NDSS
+[DEBUG] (src/doublelinkedlist_algos.c:121): Start of list_merge s(5)
+[DEBUG] (src/doublelinkedlist_algos.c:131): Start of List Merge Split
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:53): Adding to an Empty List. First((nil)), Last((nil))
+[DEBUG] (src/doublelinkedlist.c:56): Fishing updating first,last
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:53): Adding to an Empty List. First((nil)), Last((nil))
+[DEBUG] (src/doublelinkedlist.c:56): Fishing updating first,last
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist_algos.c:146): List Splite complete: l(2)r(3)
+[DEBUG] (src/doublelinkedlist_algos.c:121): Start of list_merge s(2)
+[DEBUG] (src/doublelinkedlist_algos.c:131): Start of List Merge Split
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:53): Adding to an Empty List. First((nil)), Last((nil))
+[DEBUG] (src/doublelinkedlist.c:56): Fishing updating first,last
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:53): Adding to an Empty List. First((nil)), Last((nil))
+[DEBUG] (src/doublelinkedlist.c:56): Fishing updating first,last
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist_algos.c:146): List Splite complete: l(1)r(1)
+[DEBUG] (src/doublelinkedlist_algos.c:121): Start of list_merge s(1)
+[DEBUG] (src/doublelinkedlist_algos.c:121): Start of list_merge s(1)
+[DEBUG] (src/doublelinkedlist_algos.c:153): Start of Merge_sort
+[DEBUG] (src/doublelinkedlist_algos.c:55): Sorting list (left and right)
+[DEBUG] (src/doublelinkedlist_algos.c:56): SizeofLeft(1), SizeofRight(1):
+[DEBUG] (src/doublelinkedlist_algos.c:59): Check 1 Start. 0x55ec13bab930
+[DEBUG] (src/doublelinkedlist_algos.c:62): Check 2 Start. 0x55ec13bab950
+[DEBUG] (src/doublelinkedlist_algos.c:65): Check 2 End.
+[DEBUG] (src/doublelinkedlist_algos.c:66): Left(0x55ec13bab8f0) First(0x55ec13bab930) Value(0x55ec1309d1e0:319410656)
+[DEBUG] (src/doublelinkedlist_algos.c:67): Right(0x55ec13bab910) First(0x55ec13bab950) Value(0x55ec1309d1e5:0x55ec13bab960::319410661)
+[DEBUG] (src/doublelinkedlist_algos.c:68): Merge CMP (XXXX),(1234)
+[DEBUG] (src/doublelinkedlist_algos.c:69): Check CMP End
+[DEBUG] (src/doublelinkedlist_algos.c:73): Pushing Left(XXXX)
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:123): Last Node in the list.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:53): Adding to an Empty List. First((nil)), Last((nil))
+[DEBUG] (src/doublelinkedlist.c:56): Fishing updating first,last
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist_algos.c:83): Done inital sort lists
+[DEBUG] (src/doublelinkedlist_algos.c:95): Found which list is not empty.
+[DEBUG] (src/doublelinkedlist_algos.c:99): Pushing NotDone(1234)
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:123): Last Node in the list.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist_algos.c:103): Finished sorting both lists.
+ Starting Destroy.
+[DEBUG] (src/doublelinkedlist.c:12): Starting destroy proccess...(0x7fff137e1e08::0x55ec13bab8f0)
+[DEBUG] (src/doublelinkedlist.c:17): Done Freeing All nodes
+[DEBUG] (src/doublelinkedlist.c:19): Done Freeing Last
+[DEBUG] (src/doublelinkedlist.c:21): Done Freeing List
+[DEBUG] (src/doublelinkedlist.c:12): Starting destroy proccess...(0x7fff137e1e08::0x55ec13bab910)
+[DEBUG] (src/doublelinkedlist.c:17): Done Freeing All nodes
+[DEBUG] (src/doublelinkedlist.c:19): Done Freeing Last
+[DEBUG] (src/doublelinkedlist.c:21): Done Freeing List
+[DEBUG] (src/doublelinkedlist_algos.c:108): Done with destroying Left and right.
+[DEBUG] (src/doublelinkedlist_algos.c:121): Start of list_merge s(3)
+[DEBUG] (src/doublelinkedlist_algos.c:131): Start of List Merge Split
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:53): Adding to an Empty List. First((nil)), Last((nil))
+[DEBUG] (src/doublelinkedlist.c:56): Fishing updating first,last
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:53): Adding to an Empty List. First((nil)), Last((nil))
+[DEBUG] (src/doublelinkedlist.c:56): Fishing updating first,last
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist_algos.c:146): List Splite complete: l(1)r(2)
+[DEBUG] (src/doublelinkedlist_algos.c:121): Start of list_merge s(1)
+[DEBUG] (src/doublelinkedlist_algos.c:121): Start of list_merge s(2)
+[DEBUG] (src/doublelinkedlist_algos.c:131): Start of List Merge Split
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:53): Adding to an Empty List. First((nil)), Last((nil))
+[DEBUG] (src/doublelinkedlist.c:56): Fishing updating first,last
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:53): Adding to an Empty List. First((nil)), Last((nil))
+[DEBUG] (src/doublelinkedlist.c:56): Fishing updating first,last
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist_algos.c:146): List Splite complete: l(1)r(1)
+[DEBUG] (src/doublelinkedlist_algos.c:121): Start of list_merge s(1)
+[DEBUG] (src/doublelinkedlist_algos.c:121): Start of list_merge s(1)
+[DEBUG] (src/doublelinkedlist_algos.c:153): Start of Merge_sort
+[DEBUG] (src/doublelinkedlist_algos.c:55): Sorting list (left and right)
+[DEBUG] (src/doublelinkedlist_algos.c:56): SizeofLeft(1), SizeofRight(1):
+[DEBUG] (src/doublelinkedlist_algos.c:59): Check 1 Start. 0x55ec13baba30
+[DEBUG] (src/doublelinkedlist_algos.c:62): Check 2 Start. 0x55ec13baba50
+[DEBUG] (src/doublelinkedlist_algos.c:65): Check 2 End.
+[DEBUG] (src/doublelinkedlist_algos.c:66): Left(0x55ec13bab9f0) First(0x55ec13baba30) Value(0x55ec1309d1ef:319410671)
+[DEBUG] (src/doublelinkedlist_algos.c:67): Right(0x55ec13baba10) First(0x55ec13baba50) Value(0x55ec1309d1f5:0x55ec13baba60::319410677)
+[DEBUG] (src/doublelinkedlist_algos.c:68): Merge CMP (xjvef),(NDSS)
+[DEBUG] (src/doublelinkedlist_algos.c:69): Check CMP End
+[DEBUG] (src/doublelinkedlist_algos.c:73): Pushing Left(xjvef)
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:123): Last Node in the list.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:53): Adding to an Empty List. First((nil)), Last((nil))
+[DEBUG] (src/doublelinkedlist.c:56): Fishing updating first,last
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist_algos.c:83): Done inital sort lists
+[DEBUG] (src/doublelinkedlist_algos.c:95): Found which list is not empty.
+[DEBUG] (src/doublelinkedlist_algos.c:99): Pushing NotDone(NDSS)
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:123): Last Node in the list.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist_algos.c:103): Finished sorting both lists.
+ Starting Destroy.
+[DEBUG] (src/doublelinkedlist.c:12): Starting destroy proccess...(0x7fff137e1dd8::0x55ec13bab9f0)
+[DEBUG] (src/doublelinkedlist.c:17): Done Freeing All nodes
+[DEBUG] (src/doublelinkedlist.c:19): Done Freeing Last
+[DEBUG] (src/doublelinkedlist.c:21): Done Freeing List
+[DEBUG] (src/doublelinkedlist.c:12): Starting destroy proccess...(0x7fff137e1dd8::0x55ec13baba10)
+[DEBUG] (src/doublelinkedlist.c:17): Done Freeing All nodes
+[DEBUG] (src/doublelinkedlist.c:19): Done Freeing Last
+[DEBUG] (src/doublelinkedlist.c:21): Done Freeing List
+[DEBUG] (src/doublelinkedlist_algos.c:108): Done with destroying Left and right.
+[DEBUG] (src/doublelinkedlist_algos.c:153): Start of Merge_sort
+[DEBUG] (src/doublelinkedlist_algos.c:55): Sorting list (left and right)
+[DEBUG] (src/doublelinkedlist_algos.c:56): SizeofLeft(1), SizeofRight(2):
+[DEBUG] (src/doublelinkedlist_algos.c:59): Check 1 Start. 0x55ec13bab990
+[DEBUG] (src/doublelinkedlist_algos.c:62): Check 2 Start. 0x55ec13baba30
+[DEBUG] (src/doublelinkedlist_algos.c:65): Check 2 End.
+[DEBUG] (src/doublelinkedlist_algos.c:66): Left(0x55ec13bab910) First(0x55ec13bab990) Value(0x55ec1309d1ea:319410666)
+[DEBUG] (src/doublelinkedlist_algos.c:67): Right(0x55ec13baba70) First(0x55ec13baba30) Value(0x696c2f7374736574:0x55ec13baba40::1953719668)
+Segmentation fault (core dumped)
