@@ -22,6 +22,7 @@ List *Create_words()
 
 int is_sorted(List *words)
 {
+	check(words, "List is NULL.")
 	LIST_FOREACH(words, first, next, cur)
 	{
 		if (cur->next && strcmp(cur->value, cur->next->value) > 0 )
@@ -30,6 +31,7 @@ int is_sorted(List *words)
 			return 0;
 		}
 	}
+	error:
 	return 1;
 }
 
@@ -84,6 +86,19 @@ char *test_bubble_sort()
 char *test_merge_sort()
 {
 	List *words = Create_words();
+<<<<<<< HEAD
+	debug("Merg PreSort:");	
+	Print_List(words);
+	List *res = List_merge(words, (List_compare) strcmp);
+	debug("Merg Post Sort");
+	Print_List(words);
+	mu_assert(is_sorted(res), "Words are not sorted after merge sort.");
+	debug("Test Merg Sorting a sorted list.");
+	List *res2 = List_merge(res, (List_compare) strcmp);
+	mu_assert(is_sorted(res2), "Should still be sorted after merge sort.");
+	
+	debug("Merg Clean up");
+=======
 	debug("Pre Merge:");
 	Print_List(words);
 	
@@ -105,10 +120,12 @@ char *test_merge_sort()
 	
 	debug("...Passed");
 	
+>>>>>>> b5f22892115a2c3c10e4f6d0e5865070b01b6d94
 	List_destroy(res2);
 	List_destroy(res);
 	List_destroy(words);
 	
+	debug("Done testing Merge");
 	return NULL;
 }
 

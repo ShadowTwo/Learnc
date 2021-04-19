@@ -1,16 +1,16 @@
-[DEBUG] (tests/doublelinkedlist_tests.c:173): ----Running: ./tests/doublelinkedlist_tests
-[DEBUG] (tests/doublelinkedlist_tests.c:163): 
+[DEBUG] (tests/doublelinkedlist_tests.c:175): ----Running: ./tests/doublelinkedlist_tests
+[DEBUG] (tests/doublelinkedlist_tests.c:165): 
 ----- Test_Free
 [DEBUG] (tests/doublelinkedlist_tests.c:19): Testing how free works...
 Test: (nil)
-[DEBUG] (tests/doublelinkedlist_tests.c:21): Test: 0x55fe85636670
-[DEBUG] (tests/doublelinkedlist_tests.c:23): Test: 0x55fe85636670
+[DEBUG] (tests/doublelinkedlist_tests.c:21): Test: 0x565471739670
+[DEBUG] (tests/doublelinkedlist_tests.c:23): Test: 0x565471739670
 [DEBUG] (tests/doublelinkedlist_tests.c:24): Done testing free.
-[DEBUG] (tests/doublelinkedlist_tests.c:164): 
+[DEBUG] (tests/doublelinkedlist_tests.c:166): 
 ----- test_List_create
-[DEBUG] (tests/doublelinkedlist_tests.c:165): 
+[DEBUG] (tests/doublelinkedlist_tests.c:167): 
 ----- test_functions
-[DEBUG] (tests/doublelinkedlist_tests.c:70): Checking for Null list. (0x55fe85636690)
+[DEBUG] (tests/doublelinkedlist_tests.c:70): Checking for Null list. (0x565471739690)
 [DEBUG] (tests/doublelinkedlist_tests.c:76): Checking List count: 0
 [DEBUG] (tests/doublelinkedlist_tests.c:78): Testing Push...
 [DEBUG] (src/doublelinkedlist.c:45): In Push.
@@ -74,104 +74,104 @@ Test: (nil)
 [DEBUG] (src/doublelinkedlist.c:67): Increasing Count
 [DEBUG] (src/doublelinkedlist.c:70): Finished adding.
 [DEBUG] (tests/doublelinkedlist_tests.c:93): Testing list count: 10
-[DEBUG] (tests/doublelinkedlist_tests.c:96): Testing pop...
-[DEBUG] (tests/doublelinkedlist_tests.c:99):  Removing: 9
+[DEBUG] (tests/doublelinkedlist_tests.c:98): Testing pop...
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 9
 [DEBUG] (src/doublelinkedlist.c:116): In List_remove.
-[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x55fe856368b0)
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x5654717398b0)
 [DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
-[DEBUG] (tests/doublelinkedlist_tests.c:99):  Removing: 8
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 8
 [DEBUG] (src/doublelinkedlist.c:116): In List_remove.
-[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x55fe85636870)
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x565471739870)
 [DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
-[DEBUG] (tests/doublelinkedlist_tests.c:99):  Removing: 7
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 7
 [DEBUG] (src/doublelinkedlist.c:116): In List_remove.
-[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x55fe85636830)
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x565471739830)
 [DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
-[DEBUG] (tests/doublelinkedlist_tests.c:99):  Removing: 6
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 6
 [DEBUG] (src/doublelinkedlist.c:116): In List_remove.
-[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x55fe856367f0)
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x5654717397f0)
 [DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
-[DEBUG] (tests/doublelinkedlist_tests.c:99):  Removing: 5
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 5
 [DEBUG] (src/doublelinkedlist.c:116): In List_remove.
-[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x55fe856367b0)
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x5654717397b0)
 [DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
-[DEBUG] (tests/doublelinkedlist_tests.c:99):  Removing: 4
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 4
 [DEBUG] (src/doublelinkedlist.c:116): In List_remove.
-[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x55fe85636770)
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x565471739770)
 [DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
-[DEBUG] (tests/doublelinkedlist_tests.c:99):  Removing: 3
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 3
 [DEBUG] (src/doublelinkedlist.c:116): In List_remove.
-[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x55fe85636730)
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x565471739730)
 [DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
-[DEBUG] (tests/doublelinkedlist_tests.c:99):  Removing: 2
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 2
 [DEBUG] (src/doublelinkedlist.c:116): In List_remove.
-[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x55fe856366f0)
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x5654717396f0)
 [DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
-[DEBUG] (tests/doublelinkedlist_tests.c:99):  Removing: 1
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 1
 [DEBUG] (src/doublelinkedlist.c:116): In List_remove.
-[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x55fe856366b0)
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x5654717396b0)
 [DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
-[DEBUG] (tests/doublelinkedlist_tests.c:99):  Removing: 0
-[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
-[DEBUG] (src/doublelinkedlist.c:123): Last Node in the list.
-[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
-[DEBUG] (tests/doublelinkedlist_tests.c:105): Testing that list is empty.
-[DEBUG] (tests/doublelinkedlist_tests.c:109): Testing Unshift.
-[DEBUG] (tests/doublelinkedlist_tests.c:118): Testing  Shift...
-[DEBUG] (tests/doublelinkedlist_tests.c:121):  Shifting: 9
-[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
-[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
-[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
-[DEBUG] (tests/doublelinkedlist_tests.c:121):  Shifting: 8
-[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
-[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
-[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
-[DEBUG] (tests/doublelinkedlist_tests.c:121):  Shifting: 7
-[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
-[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
-[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
-[DEBUG] (tests/doublelinkedlist_tests.c:121):  Shifting: 6
-[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
-[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
-[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
-[DEBUG] (tests/doublelinkedlist_tests.c:121):  Shifting: 5
-[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
-[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
-[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
-[DEBUG] (tests/doublelinkedlist_tests.c:121):  Shifting: 4
-[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
-[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
-[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
-[DEBUG] (tests/doublelinkedlist_tests.c:121):  Shifting: 3
-[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
-[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
-[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
-[DEBUG] (tests/doublelinkedlist_tests.c:121):  Shifting: 2
-[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
-[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
-[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
-[DEBUG] (tests/doublelinkedlist_tests.c:121):  Shifting: 1
-[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
-[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
-[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
-[DEBUG] (tests/doublelinkedlist_tests.c:121):  Shifting: 0
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 0
 [DEBUG] (src/doublelinkedlist.c:116): In List_remove.
 [DEBUG] (src/doublelinkedlist.c:123): Last Node in the list.
 [DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
-[DEBUG] (tests/doublelinkedlist_tests.c:166): 
+[DEBUG] (tests/doublelinkedlist_tests.c:107): Testing that list is empty.
+[DEBUG] (tests/doublelinkedlist_tests.c:111): Testing Unshift.
+[DEBUG] (tests/doublelinkedlist_tests.c:120): Testing  Shift...
+[DEBUG] (tests/doublelinkedlist_tests.c:123):  Shifting: 9
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:123):  Shifting: 8
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:123):  Shifting: 7
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:123):  Shifting: 6
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:123):  Shifting: 5
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:123):  Shifting: 4
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:123):  Shifting: 3
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:123):  Shifting: 2
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:123):  Shifting: 1
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:123):  Shifting: 0
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:123): Last Node in the list.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:168): 
 ----- test_List_clear
-[DEBUG] (tests/doublelinkedlist_tests.c:167): 
+[DEBUG] (tests/doublelinkedlist_tests.c:169): 
 ----- test_List_destroy
-[DEBUG] (tests/doublelinkedlist_tests.c:39): Pre List (Address: 0x55fe85018030)(Value: 0x55fe85636690)
-[DEBUG] (src/doublelinkedlist.c:12): Starting destroy proccess...(0x7ffd68bbb978::0x55fe85636690)
+[DEBUG] (tests/doublelinkedlist_tests.c:39): Pre List (Address: 0x56546fb5b030)(Value: 0x565471739690)
+[DEBUG] (src/doublelinkedlist.c:12): Starting destroy proccess...(0x7ffff95ecfa8::0x565471739690)
 [DEBUG] (src/doublelinkedlist.c:17): Done Freeing All nodes
 [DEBUG] (src/doublelinkedlist.c:19): Done Freeing Last
 [DEBUG] (src/doublelinkedlist.c:21): Done Freeing List
-[DEBUG] (tests/doublelinkedlist_tests.c:41): Post List (Address: 0x55fe85018030)(Value: 0x55fe85636690)
-[DEBUG] (tests/doublelinkedlist_tests.c:168): 
+[DEBUG] (tests/doublelinkedlist_tests.c:41): Post List (Address: 0x56546fb5b030)(Value: 0x565471739690)
+[DEBUG] (tests/doublelinkedlist_tests.c:170): 
 ----- test_List_clear_destroy
-[DEBUG] (tests/doublelinkedlist_tests.c:131): Creating a new List.
-[DEBUG] (tests/doublelinkedlist_tests.c:134): Pushing new Items to list.
+[DEBUG] (tests/doublelinkedlist_tests.c:133): Creating a new List.
+[DEBUG] (tests/doublelinkedlist_tests.c:136): Pushing new Items to list.
 [DEBUG] (src/doublelinkedlist.c:45): In Push.
 [DEBUG] (src/doublelinkedlist.c:53): Adding to an Empty List. First((nil)), Last((nil))
 [DEBUG] (src/doublelinkedlist.c:56): Fishing updating first,last
@@ -222,12 +222,596 @@ Test: (nil)
 [DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
 [DEBUG] (src/doublelinkedlist.c:67): Increasing Count
 [DEBUG] (src/doublelinkedlist.c:70): Finished adding.
-[DEBUG] (tests/doublelinkedlist_tests.c:139): Clearing/Destorying list...(0x55fe85018030::0x55fe85636690)
-[DEBUG] (src/doublelinkedlist.c:34): Starting Clean (0x7ffd68bbb968::0x55fe85636690)
-[DEBUG] (src/doublelinkedlist.c:36): Starting Destory (0x7ffd68bbb968::0x55fe85636690)
-[DEBUG] (src/doublelinkedlist.c:12): Starting destroy proccess...(0x7ffd68bbb928::0x55fe85636690)
+[DEBUG] (tests/doublelinkedlist_tests.c:141): Clearing/Destorying list...(0x56546fb5b030::0x565471739690)
+[DEBUG] (src/doublelinkedlist.c:34): Starting Clean (0x7ffff95ecf98::0x565471739690)
+[DEBUG] (src/doublelinkedlist.c:36): Starting Destory (0x7ffff95ecf98::0x565471739690)
+[DEBUG] (src/doublelinkedlist.c:12): Starting destroy proccess...(0x7ffff95ecf58::0x565471739690)
 [DEBUG] (src/doublelinkedlist.c:17): Done Freeing All nodes
 [DEBUG] (src/doublelinkedlist.c:19): Done Freeing Last
 [DEBUG] (src/doublelinkedlist.c:21): Done Freeing List
 [DEBUG] (src/doublelinkedlist.c:38): Clear Destroy Complete.
-[DEBUG] (tests/doublelinkedlist_tests.c:143): Done clearing list.
+[DEBUG] (tests/doublelinkedlist_tests.c:145): Done clearing list.
+[DEBUG] (tests/doublelinkedlist_tests.c:175): ----Running: ./tests/doublelinkedlist_tests
+[DEBUG] (tests/doublelinkedlist_tests.c:165): 
+----- Test_Free
+[DEBUG] (tests/doublelinkedlist_tests.c:19): Testing how free works...
+Test: (nil)
+[DEBUG] (tests/doublelinkedlist_tests.c:21): Test: 0x564bff22a670
+[DEBUG] (tests/doublelinkedlist_tests.c:23): Test: 0x564bff22a670
+[DEBUG] (tests/doublelinkedlist_tests.c:24): Done testing free.
+[DEBUG] (tests/doublelinkedlist_tests.c:166): 
+----- test_List_create
+[DEBUG] (tests/doublelinkedlist_tests.c:167): 
+----- test_functions
+[DEBUG] (tests/doublelinkedlist_tests.c:70): Checking for Null list. (0x564bff22a690)
+[DEBUG] (tests/doublelinkedlist_tests.c:76): Checking List count: 0
+[DEBUG] (tests/doublelinkedlist_tests.c:78): Testing Push...
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:53): Adding to an Empty List. First((nil)), Last((nil))
+[DEBUG] (src/doublelinkedlist.c:56): Fishing updating first,last
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:85): Pushing more Items to list...
+[DEBUG] (tests/doublelinkedlist_tests.c:88): Adding 1 to list.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:88): Adding 2 to list.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:88): Adding 3 to list.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:88): Adding 4 to list.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:88): Adding 5 to list.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:88): Adding 6 to list.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:88): Adding 7 to list.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:88): Adding 8 to list.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:88): Adding 9 to list.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:93): Testing list count: 10
+[DEBUG] (tests/doublelinkedlist_tests.c:98): Testing pop...
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 9
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x564bff22a8b0)
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 8
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x564bff22a870)
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 7
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x564bff22a830)
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 6
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x564bff22a7f0)
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 5
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x564bff22a7b0)
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 4
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x564bff22a770)
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 3
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x564bff22a730)
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 2
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x564bff22a6f0)
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 1
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x564bff22a6b0)
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 0
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:123): Last Node in the list.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[Error] (tests/doublelinkedlist_tests.c:103: errno: None) Failed to add correct value.
+[DEBUG] (tests/doublelinkedlist_tests.c:175): ----Running: ./tests/doublelinkedlist_tests
+[DEBUG] (tests/doublelinkedlist_tests.c:165): 
+----- Test_Free
+[DEBUG] (tests/doublelinkedlist_tests.c:19): Testing how free works...
+Test: (nil)
+[DEBUG] (tests/doublelinkedlist_tests.c:21): Test: 0x55aa5abe1670
+[DEBUG] (tests/doublelinkedlist_tests.c:23): Test: 0x55aa5abe1670
+[DEBUG] (tests/doublelinkedlist_tests.c:24): Done testing free.
+[DEBUG] (tests/doublelinkedlist_tests.c:166): 
+----- test_List_create
+[DEBUG] (tests/doublelinkedlist_tests.c:167): 
+----- test_functions
+[DEBUG] (tests/doublelinkedlist_tests.c:70): Checking for Null list. (0x55aa5abe1690)
+[DEBUG] (tests/doublelinkedlist_tests.c:76): Checking List count: 0
+[DEBUG] (tests/doublelinkedlist_tests.c:78): Testing Push...
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:53): Adding to an Empty List. First((nil)), Last((nil))
+[DEBUG] (src/doublelinkedlist.c:56): Fishing updating first,last
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:85): Pushing more Items to list...
+[DEBUG] (tests/doublelinkedlist_tests.c:88): Adding 1 to list.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:88): Adding 2 to list.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:88): Adding 3 to list.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:88): Adding 4 to list.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:88): Adding 5 to list.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:88): Adding 6 to list.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:88): Adding 7 to list.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:88): Adding 8 to list.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:88): Adding 9 to list.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:93): Testing list count: 10
+[DEBUG] (tests/doublelinkedlist_tests.c:98): Testing pop...
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 9
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x55aa5abe18b0)
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 8
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x55aa5abe1870)
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 7
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x55aa5abe1830)
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 6
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x55aa5abe17f0)
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 5
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x55aa5abe17b0)
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 4
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x55aa5abe1770)
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 3
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x55aa5abe1730)
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 2
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x55aa5abe16f0)
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 1
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x55aa5abe16b0)
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 0
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:123): Last Node in the list.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:107): Testing that list is empty.
+[DEBUG] (tests/doublelinkedlist_tests.c:111): Testing Unshift.
+[DEBUG] (tests/doublelinkedlist_tests.c:120): Testing  Shift...
+[DEBUG] (tests/doublelinkedlist_tests.c:123):  Shifting: 9
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:123):  Shifting: 8
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:123):  Shifting: 7
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:123):  Shifting: 6
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:123):  Shifting: 5
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:123):  Shifting: 4
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:123):  Shifting: 3
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:123):  Shifting: 2
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:123):  Shifting: 1
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:123):  Shifting: 0
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:123): Last Node in the list.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:168): 
+----- test_List_clear
+[DEBUG] (tests/doublelinkedlist_tests.c:169): 
+----- test_List_destroy
+[DEBUG] (tests/doublelinkedlist_tests.c:39): Pre List (Address: 0x55aa596b0030)(Value: 0x55aa5abe1690)
+[DEBUG] (src/doublelinkedlist.c:12): Starting destroy proccess...(0x7fff74c76b08::0x55aa5abe1690)
+[DEBUG] (src/doublelinkedlist.c:17): Done Freeing All nodes
+[DEBUG] (src/doublelinkedlist.c:19): Done Freeing Last
+[DEBUG] (src/doublelinkedlist.c:21): Done Freeing List
+[DEBUG] (tests/doublelinkedlist_tests.c:41): Post List (Address: 0x55aa596b0030)(Value: 0x55aa5abe1690)
+[DEBUG] (tests/doublelinkedlist_tests.c:170): 
+----- test_List_clear_destroy
+[DEBUG] (tests/doublelinkedlist_tests.c:133): Creating a new List.
+[DEBUG] (tests/doublelinkedlist_tests.c:136): Pushing new Items to list.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:53): Adding to an Empty List. First((nil)), Last((nil))
+[DEBUG] (src/doublelinkedlist.c:56): Fishing updating first,last
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:141): Clearing/Destorying list...(0x55aa596b0030::0x55aa5abe1690)
+[DEBUG] (src/doublelinkedlist.c:34): Starting Clean (0x7fff74c76af8::0x55aa5abe1690)
+[DEBUG] (src/doublelinkedlist.c:36): Starting Destory (0x7fff74c76af8::0x55aa5abe1690)
+[DEBUG] (src/doublelinkedlist.c:12): Starting destroy proccess...(0x7fff74c76ab8::0x55aa5abe1690)
+[DEBUG] (src/doublelinkedlist.c:17): Done Freeing All nodes
+[DEBUG] (src/doublelinkedlist.c:19): Done Freeing Last
+[DEBUG] (src/doublelinkedlist.c:21): Done Freeing List
+[DEBUG] (src/doublelinkedlist.c:38): Clear Destroy Complete.
+[DEBUG] (tests/doublelinkedlist_tests.c:145): Done clearing list.
+[DEBUG] (tests/doublelinkedlist_tests.c:175): ----Running: ./tests/doublelinkedlist_tests
+[DEBUG] (tests/doublelinkedlist_tests.c:165): 
+----- Test_Free
+[DEBUG] (tests/doublelinkedlist_tests.c:19): Testing how free works...
+Test: (nil)
+[DEBUG] (tests/doublelinkedlist_tests.c:21): Test: 0x55bdc1a0d670
+[DEBUG] (tests/doublelinkedlist_tests.c:23): Test: 0x55bdc1a0d670
+[DEBUG] (tests/doublelinkedlist_tests.c:24): Done testing free.
+[DEBUG] (tests/doublelinkedlist_tests.c:166): 
+----- test_List_create
+[DEBUG] (tests/doublelinkedlist_tests.c:167): 
+----- test_functions
+[DEBUG] (tests/doublelinkedlist_tests.c:70): Checking for Null list. (0x55bdc1a0d690)
+[DEBUG] (tests/doublelinkedlist_tests.c:76): Checking List count: 0
+[DEBUG] (tests/doublelinkedlist_tests.c:78): Testing Push...
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:53): Adding to an Empty List. First((nil)), Last((nil))
+[DEBUG] (src/doublelinkedlist.c:56): Fishing updating first,last
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:85): Pushing more Items to list...
+[DEBUG] (tests/doublelinkedlist_tests.c:88): Adding 1 to list.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:88): Adding 2 to list.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:88): Adding 3 to list.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:88): Adding 4 to list.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:88): Adding 5 to list.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:88): Adding 6 to list.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:88): Adding 7 to list.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:88): Adding 8 to list.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:88): Adding 9 to list.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:93): Testing list count: 10
+[DEBUG] (tests/doublelinkedlist_tests.c:98): Testing pop...
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 9
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x55bdc1a0d8b0)
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 8
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x55bdc1a0d870)
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 7
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x55bdc1a0d830)
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 6
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x55bdc1a0d7f0)
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 5
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x55bdc1a0d7b0)
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 4
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x55bdc1a0d770)
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 3
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x55bdc1a0d730)
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 2
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x55bdc1a0d6f0)
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 1
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:137): Last Node in the list. PrevNode(0x55bdc1a0d6b0)
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:101):  Removing: 0
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:123): Last Node in the list.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:107): Testing that list is empty.
+[DEBUG] (tests/doublelinkedlist_tests.c:111): Testing Unshift.
+[DEBUG] (tests/doublelinkedlist_tests.c:120): Testing  Shift...
+[DEBUG] (tests/doublelinkedlist_tests.c:123):  Shifting: 9
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:123):  Shifting: 8
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:123):  Shifting: 7
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:123):  Shifting: 6
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:123):  Shifting: 5
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:123):  Shifting: 4
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:123):  Shifting: 3
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:123):  Shifting: 2
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:123):  Shifting: 1
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:129): First Node in the List.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:123):  Shifting: 0
+[DEBUG] (src/doublelinkedlist.c:116): In List_remove.
+[DEBUG] (src/doublelinkedlist.c:123): Last Node in the list.
+[DEBUG] (src/doublelinkedlist.c:157): Finished Removing Node.
+[DEBUG] (tests/doublelinkedlist_tests.c:168): 
+----- test_List_clear
+[DEBUG] (tests/doublelinkedlist_tests.c:169): 
+----- test_List_destroy
+[DEBUG] (tests/doublelinkedlist_tests.c:39): Pre List (Address: 0x55bdc0b5a030)(Value: 0x55bdc1a0d690)
+[DEBUG] (src/doublelinkedlist.c:12): Starting destroy proccess...(0x7ffc8c3dfa38::0x55bdc1a0d690)
+[DEBUG] (src/doublelinkedlist.c:17): Done Freeing All nodes
+[DEBUG] (src/doublelinkedlist.c:19): Done Freeing Last
+[DEBUG] (src/doublelinkedlist.c:21): Done Freeing List
+[DEBUG] (tests/doublelinkedlist_tests.c:41): Post List (Address: 0x55bdc0b5a030)(Value: 0x55bdc1a0d690)
+[DEBUG] (tests/doublelinkedlist_tests.c:170): 
+----- test_List_clear_destroy
+[DEBUG] (tests/doublelinkedlist_tests.c:133): Creating a new List.
+[DEBUG] (tests/doublelinkedlist_tests.c:136): Pushing new Items to list.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:53): Adding to an Empty List. First((nil)), Last((nil))
+[DEBUG] (src/doublelinkedlist.c:56): Fishing updating first,last
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (src/doublelinkedlist.c:45): In Push.
+[DEBUG] (src/doublelinkedlist.c:60): Adding to end of List.
+[DEBUG] (src/doublelinkedlist.c:64): Finished updating Last.
+[DEBUG] (src/doublelinkedlist.c:67): Increasing Count
+[DEBUG] (src/doublelinkedlist.c:70): Finished adding.
+[DEBUG] (tests/doublelinkedlist_tests.c:141): Clearing/Destorying list...(0x55bdc0b5a030::0x55bdc1a0d690)
+[DEBUG] (src/doublelinkedlist.c:34): Starting Clean (0x7ffc8c3dfa28::0x55bdc1a0d690)
+[DEBUG] (src/doublelinkedlist.c:36): Starting Destory (0x7ffc8c3dfa28::0x55bdc1a0d690)
+[DEBUG] (src/doublelinkedlist.c:12): Starting destroy proccess...(0x7ffc8c3df9e8::0x55bdc1a0d690)
+[DEBUG] (src/doublelinkedlist.c:17): Done Freeing All nodes
+[DEBUG] (src/doublelinkedlist.c:19): Done Freeing Last
+[DEBUG] (src/doublelinkedlist.c:21): Done Freeing List
+[DEBUG] (src/doublelinkedlist.c:38): Clear Destroy Complete.
+[DEBUG] (tests/doublelinkedlist_tests.c:145): Done clearing list.

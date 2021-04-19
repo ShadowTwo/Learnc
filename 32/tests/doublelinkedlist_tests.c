@@ -81,7 +81,7 @@ char *test_functions()
 	mu_assert(list->count == 1, "Failed to add item to list.");
 	mu_assert(*((int *)list->first->value) == 0, "Failed to Value on First Node.");
 	mu_assert(*((int *)list->last->value) == 0, "Failed to Value on Last Node.");
-	
+
 	debug("Pushing more Items to list...");
 	for(i =1; i <= 9; i++)
 	{
@@ -92,6 +92,8 @@ char *test_functions()
 	
 	debug("Testing list count: %d", List_count(list));
 	mu_assert(List_count(list) == 10, "Failed to Push all new Items to List");
+	mu_assert(list->first->next != NULL, "Failed to updated next.");
+	mu_assert(list->last->prev != NULL, "Failed to update prev.");
 	
 	debug("Testing pop...");
 	for(i=9; i >= 0; i--)
