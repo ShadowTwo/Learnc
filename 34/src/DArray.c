@@ -114,7 +114,7 @@ int DArray_contract(DArray *array)
 
 int DArray_push(DArray *array, void *el)
 {
-    if(array->end < (array->max))
+	if(array->end < (array->max))
 	{
 		array->contents[array->end] = el;
 		array->end++;
@@ -126,6 +126,7 @@ int DArray_push(DArray *array, void *el)
 		
 		return 1;
 	}
+
 	return 0;
 }
 

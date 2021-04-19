@@ -8,9 +8,9 @@ OBJECTS = $(patsubst %.c,%.o,$(SOURCES))
 TEST_SRC=$(wildcard tests/*_tests.c)
 TESTS=$(patsubst %.c,%,$(TEST_SRC))
 
-TARGET=build/doublelinkedlist.a
+TARGET=build/path.a
 SO_TARGET=$(patsubst %.a,%.so,$(TARGET))
-SO_OBJECT=$(patsubst build/%.a,src/%.o,$(TARGET))
+#SO_OBJECT=$(patsubst build/%.a,src/%.o,$(TARGET))
 
 # The Target Build
 all: $(TARGET) $(SO_TARGET) tests
@@ -26,9 +26,9 @@ $(TARGET): build $(OBJECTS)
 	ranlib $@
 	
 
-$(SO_TARGET): $(TARGET) $(SO_OBJECT)
+$(SO_TARGET): $(TARGET) $(OBJECT)
 	@echo IN SO_TARGET
-	$(CC) -shared -o $@ $(SO_OBJECT)
+	$(CC) -shared -o $@ $(OBJECT)
 	#$(CC) $(CFLAGS) $(TARGET)
 build:
 	@echo IN BUILD

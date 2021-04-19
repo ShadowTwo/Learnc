@@ -10,7 +10,7 @@ char *test_create()
 {
 	array = DArray_create(sizeof(int), 100);
 	mu_assert(array != NULL, "DArray_create Failed.");
-    mu_assert(array->contents != NULL, "Contetns are wrong in DAraay.");
+    	mu_assert(array->contents != NULL, "Contetns are wrong in DAraay.");
 	mu_assert(array->end == 0, "End isn't at the right spot.");
 	mu_assert(array->element_size == sizeof(int), "Element size is wrong.");
 	mu_assert(array->max == 100, "Wrong max length on initial size.");
@@ -19,16 +19,17 @@ char *test_create()
 }
 
 
-void Print_Array(DArray array)
+void Print_Array(DArray *array)
 {
 	
-	printf("Base array: %p", (void *)(array.contents));
+	debug("Array(%p:%p) Max: %d End: %d Ele_Size: %d ExpandRate: %d", &array, &array->contents, array->max, array->end, array->element_size, array->expand_rate);
+	//debug("Base array: %p", (void *)(array->contents));
 	int x = 0;
 	for(x = 0; x < DArray_max(array); x++)
 	{
-		debug("(%p) %p : %d", &array->contents[x], *array->contents[x], array->contents[x]); 
+		debug(" (%d) %p : %p", x, &array->contents[x], array->contents[x]); 
 	}
-
+	debug("End Array");
 }
 
 char *test_ryan()
@@ -42,7 +43,7 @@ char *test_ryan()
 	int i = 0;
 	int z = 0;
 	 
-	debug("Pushing Values into Array...");
+	debug("Pushing Values into Array(%d)...", array->max);
 	for(i=0; i<15; i++)
 	{
 		debug("Pushing: %d", i);
@@ -67,6 +68,8 @@ char *test_ryan()
 	}
 
 	debug("...Done\nChecking Size....");
+
+	debug("Current max: %d", array->max); 
 	mu_assert(array->max == 16, "Wrong max size.");
 
 	
@@ -186,20 +189,50 @@ char *test_push_pop()
 	return NULL;
 }
 
+char *test_ryan_1()
+{
+	array = DArray_create(sizeof(int), 5);
+	array->expand_rate = 5;
+
+	//debug("Array(%p:%p) Max: %d End: %d Ele_Size: %d ExpandRate: %d", &array, &array->contents, array->max, array->end, array->element_size, array->expand_rate);
+
+	debug("Before adding:");
+	Print_Array(array);
+
+	int *val = DArray_new(array);
+	*val = 1;
+	DArray_push(array, &val);
+
+	debug("Val: %d", *val);
+
+	Print_Array(array);
+
+	val = DArray_new(array);
+	*val = 2;
+	DArray_push(array, &val);
+
+	debug("Val: %d", *val);
+
+	Print_Array(array);
+
+	return NULL;
+}
+
 char *all_tests()
 {
 	mu_suite_start();
 
-	//mu_run_test(test_create);
-	//mu_run_test(test_new);
-	//mu_run_test(test_set);
-	//mu_run_test(test_get);
-	//mu_run_test(test_remove);
-	//mu_run_test(test_expand_contract);
-	//mu_run_test(test_push_pop);
-	//mu_run_test(test_destroy);
+	mu_run_test(test_create);
+	mu_run_test(test_new);
+	mu_run_test(test_set);
+	mu_run_test(test_get);
+	mu_run_test(test_remove);
+	mu_run_test(test_expand_contract);
+	mu_run_test(test_push_pop);
+	mu_run_test(test_destroy);
 
-	mu_run_test(test_ryan);
+	//mu_run_test(test_ryan);
+	//mu_run_test(test_ryan_1);
 
 	return NULL;
 }

@@ -1,0 +1,49 @@
+[DEBUG] (tests/list_algos_tests.c:125): ----Running: ./tests/list_algos_tests
+[DEBUG] (tests/list_algos_tests.c:119): 
+----- test_bubble_sort
+[DEBUG] (tests/list_algos_tests.c:50): Pre Bubble:
+[DEBUG] (tests/list_algos_tests.c:41): 0 XXXX
+[DEBUG] (tests/list_algos_tests.c:41): 1 1234
+[DEBUG] (tests/list_algos_tests.c:41): 2 abcd
+[DEBUG] (tests/list_algos_tests.c:41): 3 xjvef
+[DEBUG] (tests/list_algos_tests.c:41): 4 NDSS
+[DEBUG] (tests/list_algos_tests.c:55): Post Bubble: 1
+[DEBUG] (tests/list_algos_tests.c:41): 0 1234
+[DEBUG] (tests/list_algos_tests.c:41): 1 NDSS
+[DEBUG] (tests/list_algos_tests.c:41): 2 XXXX
+[DEBUG] (tests/list_algos_tests.c:41): 3 abcd
+[DEBUG] (tests/list_algos_tests.c:41): 4 xjvef
+[DEBUG] (tests/list_algos_tests.c:58): Testing Inital sort...
+[DEBUG] (tests/list_algos_tests.c:61): ...Passed
+[DEBUG] (tests/list_algos_tests.c:63): Testing PreSorted sort...
+[DEBUG] (tests/list_algos_tests.c:67): ...Passed
+[DEBUG] (tests/list_algos_tests.c:71): Testing Empty List sort...
+[Error] (src/doublelinkedlist_algos.c:11: errno: None) List is Empty.
+[DEBUG] (tests/list_algos_tests.c:77): ...Passed
+[DEBUG] (tests/list_algos_tests.c:120): 
+----- test_merge_sort
+[DEBUG] (tests/list_algos_tests.c:87): Pre Merge:
+[DEBUG] (tests/list_algos_tests.c:41): 0 XXXX
+[DEBUG] (tests/list_algos_tests.c:41): 1 1234
+[DEBUG] (tests/list_algos_tests.c:41): 2 abcd
+[DEBUG] (tests/list_algos_tests.c:41): 3 xjvef
+[DEBUG] (tests/list_algos_tests.c:41): 4 NDSS
+[DEBUG] (tests/list_algos_tests.c:93): Post Merge:
+[DEBUG] (tests/list_algos_tests.c:41): 0 1234
+[DEBUG] (tests/list_algos_tests.c:41): 1 NDSS
+[DEBUG] (tests/list_algos_tests.c:41): 2 XXXX
+[DEBUG] (tests/list_algos_tests.c:41): 3 abcd
+[DEBUG] (tests/list_algos_tests.c:41): 4 xjvef
+[DEBUG] (tests/list_algos_tests.c:96): ...Passed
+[DEBUG] (tests/list_algos_tests.c:97): Testing presorted Merge...
+[DEBUG] (tests/list_algos_tests.c:41): 0 1234
+[DEBUG] (tests/list_algos_tests.c:41): 1 NDSS
+[DEBUG] (tests/list_algos_tests.c:41): 2 XXXX
+[DEBUG] (tests/list_algos_tests.c:41): 3 abcd
+[DEBUG] (tests/list_algos_tests.c:41): 4 xjvef
+[DEBUG] (tests/list_algos_tests.c:41): 0 1234
+[DEBUG] (tests/list_algos_tests.c:41): 1 NDSS
+[DEBUG] (tests/list_algos_tests.c:41): 2 XXXX
+[DEBUG] (tests/list_algos_tests.c:41): 3 abcd
+[DEBUG] (tests/list_algos_tests.c:41): 4 xjvef
+[DEBUG] (tests/list_algos_tests.c:106): ...Passed
